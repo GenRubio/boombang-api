@@ -1,7 +1,7 @@
 <?php
 
-use App\CrudHelper;
 use App\Helpers\AuthHelper;
+use App\Helpers\CrudHelper;
 use App\Helpers\UtilsHelper;
 
 /**

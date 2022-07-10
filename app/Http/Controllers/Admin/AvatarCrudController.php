@@ -39,18 +39,31 @@ class AvatarCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('id');
-        CRUD::column('name');
-        CRUD::column('image');
-        CRUD::column('active');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $this->crud->addColumn([
+            'name' => 'id',
+            'label' => 'ID',
+            'type'  => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'image',
+            'label' => 'Imagen',
+            'type'  => 'image',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'name',
+            'label' => 'Nombre',
+            'type'  => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'name',
+            'label' => 'Nombre',
+            'type'  => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'active',
+            'type' => 'btnToggle',
+            'label' => 'Activo',
+        ]);
     }
 
     /**
