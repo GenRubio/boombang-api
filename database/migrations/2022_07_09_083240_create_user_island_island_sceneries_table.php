@@ -14,6 +14,7 @@ class CreateUserIslandIslandSceneriesTable extends Migration
     public function up()
     {
         Schema::create('user_island_island_sceneries', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('island_id');
             $table->unsignedBigInteger('island_scenery_id');
