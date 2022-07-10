@@ -1,7 +1,8 @@
 <?php
 
-use App\Helpers\AuthHelper;
+use App\CrudHelper;
 use App\Helpers\PGPHelper;
+use App\Helpers\AuthHelper;
 use App\Helpers\UtilsHelper;
 
 /**
@@ -52,5 +53,17 @@ if (!function_exists('refactorBitMap')) {
     function refactorBitMap($map)
     {
         return UtilsHelper::refactorBitMap($map);
+    }
+}
+
+/**
+ * CrudHelper
+ */
+
+
+if (!function_exists('toggleField')) {
+    function toggleField($request)
+    {
+        return CrudHelper::toggleField($request);
     }
 }
