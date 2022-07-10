@@ -1,0 +1,17 @@
+<?php
+
+namespace NameSpacePathStub;
+
+class ClassNameStub
+{
+    public function __construct()
+    {
+        //
+    }
+
+    public function run()
+    {
+        //
+    }
+
+}
