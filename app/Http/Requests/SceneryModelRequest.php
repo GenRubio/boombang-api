@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class SceneryModelRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255'
+            'name' => 'required|max:255',
+            'model' => 'required'
         ];
     }
 
