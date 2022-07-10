@@ -5,3 +5,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('catalogue-category') }}'><i class='nav-icon la la-question'></i> Catalogue categories</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('menu-category') }}'><i class='nav-icon la la-question'></i> Menu categories</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('scenery-model') }}'><i class='nav-icon la la-question'></i> Scenery models</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('games-scenery') }}'><i class='nav-icon la la-question'></i> Games sceneries</a></li>

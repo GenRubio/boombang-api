@@ -45,13 +45,13 @@ class CatalogueCategoryCrudController extends CrudController
             'type'  => 'text',
         ]);
         $this->crud->addColumn([
-            'name' => 'name',
-            'label' => 'Nombre',
+            'name' => 'model',
+            'label' => 'Modelo',
             'type'  => 'text',
         ]);
         $this->crud->addColumn([
-            'name' => 'model',
-            'label' => 'Modelo',
+            'name' => 'name',
+            'label' => 'Nombre',
             'type'  => 'text',
         ]);
         $this->crud->addColumn([
