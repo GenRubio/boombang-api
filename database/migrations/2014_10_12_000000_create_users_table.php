@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('register_ip')->nullable();
             $table->string('current_ip')->nullable();
             $table->dateTime('last_connection_date')->nullable();
+            $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
