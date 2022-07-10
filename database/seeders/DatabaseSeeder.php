@@ -31,7 +31,9 @@ class DatabaseSeeder extends Seeder
             IslandSceneriesSeeder::class,
             MiniGamesSceneriesSeeder::class,
             PublicSceneriesSeeder::class,
-            ScenerieArrowsSeeder::class
+            ScenerieArrowsSeeder::class,
+            SceneryItemAppearancesSeeder::class,
+            SceneryItemCaptureSeeder::class
         ]);
     }
 }
