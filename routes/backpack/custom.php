@@ -26,4 +26,5 @@ Route::group([
 
     Route::crud('user', 'UserCrudController');
     Route::crud('avatar', 'AvatarCrudController');
+    Route::crud('catalogue-category', 'CatalogueCategoryCrudController');
 }); // this should be the absolute last line of this file
