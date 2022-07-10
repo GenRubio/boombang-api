@@ -17,7 +17,7 @@ class SingularModelNameService extends Controller
      */
     public function __construct()
     {
-        $this->SingularModelName = new SingularModelName();
+        $this->SingularModelNameRepository = new SingularModelNameRepository();
     }
 
 }
