@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Http\Controllers\Controller;
 use App\Models\SingularModelName;
-
+use App\Repositories\SingularModelName\SingularModelNameRepository;
 /**
  * Class SingularModelNameService
  * @package App\Services\SingularModelName
@@ -17,7 +17,7 @@ class SingularModelNameService extends Controller
      */
     public function __construct()
     {
-        //
+        $this->SingularModelName = new SingularModelName();
     }
 
 }

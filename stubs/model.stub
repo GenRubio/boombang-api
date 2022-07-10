@@ -3,14 +3,9 @@
 namespace {{ namespace }};
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\Observers\CacheClearObservantTrait;
 
 class {{ class }} extends Model
 {
-    use SoftDeletes;
-    use CacheClearObservantTrait;
-
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -22,8 +17,7 @@ class {{ class }} extends Model
     public $timestamps = true;
     // protected $guarded = ['id'];
     protected $fillable = [
-        //
-        'deleted_user'
+  
     ];
     // protected $hidden = [];
     // protected $dates = [];
