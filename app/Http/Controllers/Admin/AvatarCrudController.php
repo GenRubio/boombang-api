@@ -76,18 +76,24 @@ class AvatarCrudController extends CrudController
     {
         CRUD::setValidation(AvatarRequest::class);
 
-        CRUD::field('id');
-        CRUD::field('name');
-        CRUD::field('image');
-        CRUD::field('active');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
+        $this->crud->addFields([
+            [
+                'name' => 'name',
+                'type' => 'text',
+                'label' => 'Nombre',
+            ],
+            [
+                'name' => 'image',
+                'type' => 'image',
+                'label' => 'Image',
+            ],
+            [
+                'name' => 'active',
+                'type' => 'checkbox',
+                'label' => 'Activo',
+                'default' => true
+            ],
+        ]);
     }
 
     /**
