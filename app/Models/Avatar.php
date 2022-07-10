@@ -19,7 +19,11 @@ class Avatar extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'image',
+        'active',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
