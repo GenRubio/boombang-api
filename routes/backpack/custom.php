@@ -25,4 +25,6 @@ Route::group([
     /********************************************************************** */
 
     Route::crud('user', 'UserCrudController');
+    Route::crud('parametric-table', 'ParametricTableCrudController');
+    Route::crud('parametric-table-value', 'ParametricTableValueCrudController');
 }); // this should be the absolute last line of this file
