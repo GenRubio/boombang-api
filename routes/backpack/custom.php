@@ -25,9 +25,4 @@ Route::group([
     /********************************************************************** */
 
     Route::crud('user', 'UserCrudController');
-    Route::crud('avatar', 'AvatarCrudController');
-    Route::crud('catalogue-category', 'CatalogueCategoryCrudController');
-    Route::crud('menu-category', 'MenuCategoryCrudController');
-    Route::crud('scenery-model', 'SceneryModelCrudController');
-    Route::crud('games-scenery', 'GamesSceneryCrudController');
 }); // this should be the absolute last line of this file
