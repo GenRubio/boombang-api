@@ -51,7 +51,7 @@ class CreateDataUsersTable extends Migration
 
             $table->foreign('avatar_id')
                 ->references('id')
-                ->on('avatars')
+                ->on('parametric_table_values')
                 ->cascadeOnDelete();
         });
     }

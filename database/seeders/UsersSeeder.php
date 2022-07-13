@@ -38,7 +38,7 @@ class UsersSeeder extends Seeder
         DB::table('data_users')->insert([
             'id' => 1,
             'user_id' => 1,
-            'avatar_id' => 1,
+            'avatar_id' => 34,
             'avatar_colors_hex' => 'FFD797FFCC00FFFFFF6633000066CCFFFFFF000000',
             'created_at' => $now,
         ]);
