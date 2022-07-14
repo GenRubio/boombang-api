@@ -22,9 +22,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'uid',
-        'friend_code',
-        'public_key'
+        'security_code',
+        'user_age',
+        'coins_gold',
+        'coins_silver',
+        'vip',
+        'admin',
+        'register_ip',
+        'current_ip',
+        'last_connection_date',
+        'active',
     ];
 
     /**
@@ -34,23 +41,40 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    /*
+    |--------------------------------------------------------------------------
+    | FUNCTIONS
+    |--------------------------------------------------------------------------
+    */
 
-    public function friends(){
-        return $this->hasMany(UserFriend::class, 'user_id', 'id')->where('accepted', true);
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    public function dataUser()
+    {
+        return $this->hasOne(DataUser::class, 'user_id', 'id');
     }
 
-    public function pendingRequest(){
-        return $this->hasMany(UserFriend::class, 'friend_id', 'id')->where('accepted', false);
-    }
+    /*
+    |--------------------------------------------------------------------------
+    | SCOPES
+    |--------------------------------------------------------------------------
+    */
+
+    /*
+    |--------------------------------------------------------------------------
+    | ACCESSORS
+    |--------------------------------------------------------------------------
+    */
+
+    /*
+    |--------------------------------------------------------------------------
+    | MUTATORS
+    |--------------------------------------------------------------------------
+    */
 }

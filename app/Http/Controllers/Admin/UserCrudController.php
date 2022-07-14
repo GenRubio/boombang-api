@@ -64,11 +64,95 @@ class UserCrudController extends CrudController
     {
         CRUD::setValidation(UserRequest::class);
 
-        CRUD::field('name');
-        CRUD::field('email');
-        CRUD::field('password');
-        CRUD::field('uid');
-        CRUD::field('friend_code');
+        $this->userTab();
+    }
+
+    private function userTab()
+    {
+        $tab = 'User';
+        $this->crud->addFields([
+            [
+                'name' => 'name',
+                'label' => 'Nombre',
+                'type' => 'text',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'email',
+                'label' => 'Email',
+                'type' => 'text',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'password',
+                'label' => 'Contraseña',
+                'type' => 'password',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'security_code',
+                'label' => 'Codigo de seguridad',
+                'type' => 'password',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'user_age',
+                'label' => 'Edad',
+                'type' => 'number',
+                'default' => 14,
+                'tab' => $tab
+            ],
+            [
+                'name' => 'coins_gold',
+                'label' => 'Creditos de oro',
+                'type' => 'number',
+                'default' => 0,
+                'tab' => $tab
+            ],
+            [
+                'name' => 'coins_silver',
+                'label' => 'Creditos de plata',
+                'type' => 'number',
+                'default' => 0,
+                'tab' => $tab
+            ],
+            [
+                'name' => 'vip',
+                'label' => 'VIP',
+                'type' => 'datetime',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'register_ip',
+                'label' => 'IP de registro',
+                'type' => 'text',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'current_ip',
+                'label' => 'IP actual',
+                'type' => 'text',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'last_connection_date',
+                'label' => 'Ultima conexion',
+                'type' => 'datetime',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'admin',
+                'type' => 'checkbox',
+                'label' => 'Administrador',
+                'tab' => $tab
+            ],
+            [
+                'name' => 'active',
+                'type' => 'checkbox',
+                'label' => 'Activo',
+                'tab' => $tab
+            ],
+        ]);
     }
 
     protected function setupUpdateOperation()
