@@ -63,7 +63,6 @@ class UserCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(UserRequest::class);
-
         $this->userTab();
     }
 
@@ -153,6 +152,10 @@ class UserCrudController extends CrudController
                 'tab' => $tab
             ],
         ]);
+    }
+
+    private function userDataTab(){
+        $tab = 'User Data';
     }
 
     protected function setupUpdateOperation()
