@@ -2,28 +2,11 @@
 
 namespace App\Models\Parametric;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\ParametricTableValue;
 
-class NpcSignType extends Model
+class NpcSignType extends ParametricTableValue
 {
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-
-    // protected $table = '';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
-    // protected $guarded = ['id'];
-    protected $fillable = [
-  
-    ];
-    // protected $hidden = [];
-    // protected $dates = [];
-    // protected $translatable = [];
-    // protected $casts = [];
-
+    public $parametricTableName = 'npc_sign_types';
 
     /*
     |--------------------------------------------------------------------------

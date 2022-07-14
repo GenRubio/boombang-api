@@ -2,28 +2,11 @@
 
 namespace App\Models\Parametric;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\ParametricTableValue;
 
-class FriendIcon extends Model
+class FriendIcon extends ParametricTableValue
 {
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-
-    // protected $table = '';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
-    // protected $guarded = ['id'];
-    protected $fillable = [
-  
-    ];
-    // protected $hidden = [];
-    // protected $dates = [];
-    // protected $translatable = [];
-    // protected $casts = [];
-
+    public $parametricTableName = 'friend_icons';
 
     /*
     |--------------------------------------------------------------------------

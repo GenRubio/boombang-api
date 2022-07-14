@@ -2,26 +2,11 @@
 
 namespace App\Models\Parametric;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\ParametricTableValue;
 
-class MenuCategory extends Model
+class MenuCategory extends ParametricTableValue
 {
-    use CrudTrait;
-
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-
-    protected $table = 'menu_categories';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
-    protected $guarded = ['id'];
-    // protected $fillable = [];
-    // protected $hidden = [];
-    // protected $dates = [];
+    public $parametricTableName = 'menu_categories';
 
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +28,7 @@ class MenuCategory extends Model
 
     /*
     |--------------------------------------------------------------------------
-    | ACCESSORS
+    | ACCESORS
     |--------------------------------------------------------------------------
     */
 
