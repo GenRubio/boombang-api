@@ -51,7 +51,9 @@ class ParametricTable extends Model
 
     public function scopeName($query, $name)
     {
-        return $query->where('name', $name);
+        return $query->when(!is_null($name), function($query) use ($name){
+            return $query->where('name', $name);
+        });
     }
 
     /*
