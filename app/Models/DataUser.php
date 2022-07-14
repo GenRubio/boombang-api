@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use App\Models\Parametric\Avatar;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class DataUser extends Model
 {
@@ -66,6 +67,11 @@ class DataUser extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function avatar()
+    {
+        return $this->belongsTo(Avatar::class, 'avatar_id');
     }
 
     /*

@@ -84,7 +84,7 @@ class ParametricTableValueCrudController extends CrudController
                 'type'      => 'select2',
                 'name'      => 'parametric_table_id',
                 'entity'    => 'parametricTable',
-                'model'     => "App\Models\ParametricTable",
+                'model'     => ParametricTable::class,
                 'attribute' => 'name',
             ],
             [

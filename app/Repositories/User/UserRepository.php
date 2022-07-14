@@ -26,21 +26,8 @@ class UserRepository extends Repository implements UserRepositoryInterface
         parent::__construct($this->model);
     }
 
-    public function create($data)
+    public function getAllActive()
     {
-        $this->model::insert($data);
-    }
-
-    public function getUserByName($name)
-    {
-        return $this->model->where('name', $name)->first();
-    }
-
-    public function getUserById($id){
-        return $this->model->where('id', $id)->first();
-    }
-
-    public function getUserByEmail($email){
-        return $this->model->where('email', $email)->first();
+        return $this->model->active()->get();
     }
 }

@@ -66,6 +66,11 @@ class User extends Authenticatable
     |--------------------------------------------------------------------------
     */
 
+    public function scopeActive($query)
+    {
+        return $query->where($this->table . '.active', 1);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS

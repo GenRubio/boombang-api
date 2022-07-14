@@ -23,4 +23,9 @@ class UserService extends Controller
     {
         $this->userRepository = new UserRepository();
     }
+
+    public function getAllActive()
+    {
+        return $this->userRepository->getAllActive();
+    }
 }

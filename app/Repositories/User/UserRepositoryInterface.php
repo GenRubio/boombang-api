@@ -8,8 +8,5 @@ namespace App\Repositories\User;
  */
 interface UserRepositoryInterface
 {
-    public function create($data);
-    public function getUserByName($name);
-    public function getUserById($id);
-    public function getUserByEmail($email);
+    public function getAllActive();
 }
