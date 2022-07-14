@@ -28,4 +28,9 @@ class UserService extends Controller
     {
         return $this->userRepository->getAllActive();
     }
+
+    public function create($data)
+    {
+        return $this->userRepository->create($data);
+    }
 }

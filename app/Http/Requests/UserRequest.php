@@ -26,7 +26,12 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255'
+            'name' => 'required|unique:users,name,'. request()->route()->id,
+            'email' => 'required|email|unique:users,email,'. request()->route()->id,
+            'password' => 'required',
+            'user_age' => 'required',
+            'coins_gold' => 'required',
+            'coins_silver' => 'required',
         ];
     }
 

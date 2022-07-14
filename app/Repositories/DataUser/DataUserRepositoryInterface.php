@@ -8,5 +8,5 @@ namespace App\Repositories\DataUser;
  */
 interface DataUserRepositoryInterface
 {
-    //
+    public function create($data);
 }

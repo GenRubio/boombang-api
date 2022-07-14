@@ -86,6 +86,11 @@ class DataUser extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function getAvatarParameterAttribute()
+    {
+        return $this->avatar->parameter;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS

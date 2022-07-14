@@ -30,4 +30,9 @@ class UserRepository extends Repository implements UserRepositoryInterface
     {
         return $this->model->active()->get();
     }
+
+    public function create($data)
+    {
+        return $this->model->create($data);
+    }
 }

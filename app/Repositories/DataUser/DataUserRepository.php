@@ -25,4 +25,9 @@ class DataUserRepository extends Repository implements DataUserRepositoryInterfa
         $this->model = new DataUser();
         parent::__construct($this->model);
     }
+
+    public function create($data)
+    {
+        return $this->model->create($data);
+    }
 }

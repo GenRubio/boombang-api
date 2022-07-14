@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Tasks\CreateDataUserTask;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 class UserCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation {
+        store as traitStore;
+    }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
@@ -63,103 +67,107 @@ class UserCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(UserRequest::class);
-        $this->userTab();
+        $this->crud->setRequest($this->handlePasswordInput(request()));
+        $this->setFields();
     }
 
-    private function userTab()
+    protected function setupUpdateOperation()
     {
-        $tab = 'User';
+        CRUD::setValidation(UserRequest::class);
+        $this->crud->unsetValidation('password');
+        $this->crud->setRequest($this->handlePasswordInput(request()));
+        $this->setFields();
+    }
+
+    private function setFields()
+    {
         $this->crud->addFields([
             [
                 'name' => 'name',
                 'label' => 'Nombre',
                 'type' => 'text',
-                'tab' => $tab
             ],
             [
                 'name' => 'email',
                 'label' => 'Email',
                 'type' => 'text',
-                'tab' => $tab
             ],
             [
                 'name' => 'password',
                 'label' => 'Contraseña',
                 'type' => 'password',
-                'tab' => $tab
             ],
             [
                 'name' => 'security_code',
                 'label' => 'Codigo de seguridad',
                 'type' => 'password',
-                'tab' => $tab
             ],
             [
                 'name' => 'user_age',
                 'label' => 'Edad',
                 'type' => 'number',
                 'default' => 14,
-                'tab' => $tab
             ],
             [
                 'name' => 'coins_gold',
                 'label' => 'Creditos de oro',
                 'type' => 'number',
                 'default' => 0,
-                'tab' => $tab
             ],
             [
                 'name' => 'coins_silver',
                 'label' => 'Creditos de plata',
                 'type' => 'number',
                 'default' => 0,
-                'tab' => $tab
             ],
             [
                 'name' => 'vip',
                 'label' => 'VIP',
                 'type' => 'datetime',
-                'tab' => $tab
             ],
             [
                 'name' => 'register_ip',
                 'label' => 'IP de registro',
                 'type' => 'text',
-                'tab' => $tab
             ],
             [
                 'name' => 'current_ip',
                 'label' => 'IP actual',
                 'type' => 'text',
-                'tab' => $tab
             ],
             [
                 'name' => 'last_connection_date',
                 'label' => 'Ultima conexion',
                 'type' => 'datetime',
-                'tab' => $tab
             ],
             [
                 'name' => 'admin',
                 'type' => 'checkbox',
                 'label' => 'Administrador',
-                'tab' => $tab
             ],
             [
                 'name' => 'active',
                 'type' => 'checkbox',
                 'label' => 'Activo',
-                'tab' => $tab
             ],
         ]);
     }
 
-    private function userDataTab(){
-        $tab = 'User Data';
+    protected function handlePasswordInput($request)
+    {
+        if ($request->input('password')) {
+            $request->request->set('password', Hash::make($request->input('password')));
+        } else {
+            $request->request->remove('password');
+        }
+
+        return $request;
     }
 
-    protected function setupUpdateOperation()
+    protected function store()
     {
-        $this->setupCreateOperation();
+        $responde = $this->traitStore();
+        (new CreateDataUserTask($this->crud->entry))->run();
+        return $responde;
     }
 }
