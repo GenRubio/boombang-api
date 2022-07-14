@@ -2,12 +2,19 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use App\Scopes\ParametricTableScope;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class ParametricTableValue extends Model
 {
     use CrudTrait;
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new ParametricTableScope);
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -24,6 +31,7 @@ class ParametricTableValue extends Model
         'name',
         'parameter',
     ];
+    public $parametricTableName = null;
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -41,7 +49,8 @@ class ParametricTableValue extends Model
 
     public function parametricTable()
     {
-        return $this->belongsTo(ParametricTable::class, 'parametric_table_id');
+        return $this->belongsTo(ParametricTable::class, 'parametric_table_id')
+            ->name($this->parametricTableName);
     }
 
     /*

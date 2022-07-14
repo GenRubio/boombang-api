@@ -49,6 +49,11 @@ class ParametricTable extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function scopeName($query, $name)
+    {
+        return $query->where('name', $name);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS

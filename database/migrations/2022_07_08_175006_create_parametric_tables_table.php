@@ -15,7 +15,7 @@ class CreateParametricTablesTable extends Migration
     {
         Schema::create('parametric_tables', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('comment')->nullable();
             $table->timestamps();
         });
