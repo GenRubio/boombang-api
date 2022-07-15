@@ -14,6 +14,7 @@
     <ul class="nav-dropdown-items">
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('public-scenery') }}'><i class='nav-icon la la-question'></i> Areas</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('game-scenery') }}'><i class='nav-icon la la-question'></i> Juegos</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('island-scenery') }}'><i class='nav-icon la la-question'></i> Islas</a></li>
     </ul>
 </li>
 <li class="nav-title">TABLAS PARAMETRICAS</li>

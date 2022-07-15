@@ -4,7 +4,7 @@ namespace App\Models\Parametric;
 
 use App\Models\ParametricTableValue;
 
-class IslandTypes extends ParametricTableValue
+class IslandType extends ParametricTableValue
 {
     public $parametricTableName = 'island_types';
 

@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Scenery;
+use App\Models\Parametric\IslandType;
 use App\Models\Parametric\MenuCategory;
 use App\Models\Parametric\SceneryModel;
-use App\Http\Requests\PublicSceneryRequest;
+use App\Http\Requests\IslandSceneryRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-class PublicSceneryCrudController extends CrudController
+class IslandSceneryCrudController extends CrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
@@ -20,9 +20,9 @@ class PublicSceneryCrudController extends CrudController
 
     public function setup()
     {
-        CRUD::setModel(\App\Models\PublicScenery::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/public-scenery');
-        CRUD::setEntityNameStrings('escenario', 'escenarios areas');
+        CRUD::setModel(\App\Models\IslandScenery::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/island-scenery');
+        CRUD::setEntityNameStrings('escenario', 'escenarios islas');
     }
 
     protected function setupListOperation()
@@ -33,9 +33,18 @@ class PublicSceneryCrudController extends CrudController
             'type'  => 'text',
         ]);
         $this->crud->addColumn([
-            'name' => 'name',
-            'label' => 'Nombre',
-            'type'  => 'text',
+            'name' => 'scenery',
+            'label' => 'Escenario',
+            'type' => 'relationship',
+            'attribute' => 'name',
+            'model'     => Scenery::class,
+        ]);
+        $this->crud->addColumn([
+            'name' => 'islandType',
+            'label' => 'Tipo isla',
+            'type' => 'relationship',
+            'attribute' => 'name',
+            'model'     => IslandType::class,
         ]);
         $this->crud->addColumn([
             'name' => 'menuCategory',
@@ -51,41 +60,27 @@ class PublicSceneryCrudController extends CrudController
             'attribute' => 'name',
             'model'     => SceneryModel::class,
         ]);
-        $this->crud->addColumn([
-            'name' => 'scenery',
-            'label' => 'Escenario',
-            'type' => 'relationship',
-            'attribute' => 'name',
-            'model'     => Scenery::class,
-        ]);
-        $this->crud->addColumn([
-            'name' => 'visible',
-            'type' => 'btnToggle',
-            'label' => 'Visible',
-        ]);
-        $this->crud->addColumn([
-            'name' => 'active',
-            'type' => 'btnToggle',
-            'label' => 'Activo',
-        ]);
     }
 
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(PublicSceneryRequest::class);
+        CRUD::setValidation(IslandSceneryRequest::class);
 
         $this->crud->addFields([
-            [
-                'name' => 'name',
-                'label' => 'Nombre',
-                'type' => 'text',
-            ],
             [
                 'label'     => "Escenario",
                 'type'      => 'select2',
                 'name'      => 'scenery_id',
                 'entity'    => 'scenery',
                 'model'     => Scenery::class,
+                'attribute' => 'name',
+            ],
+            [
+                'label'     => "Tipo isla",
+                'type'      => 'select2',
+                'name'      => 'island_type_id',
+                'entity'    => 'islandType',
+                'model'     => IslandType::class,
                 'attribute' => 'name',
             ],
             [
@@ -99,7 +94,7 @@ class PublicSceneryCrudController extends CrudController
                     'readonly'    => 'readonly',
                     'disabled'    => 'disabled',
                 ],
-                'value' => 1
+                'value' => 2
             ], 
             [
                 'label'     => "Modelo",
@@ -112,7 +107,7 @@ class PublicSceneryCrudController extends CrudController
                     'readonly'    => 'readonly',
                     'disabled'    => 'disabled',
                 ],
-                'value' => 1
+                'value' => 7
             ],
             [
                 'name' => 'position_x',
@@ -144,29 +139,11 @@ class PublicSceneryCrudController extends CrudController
                 'type' => 'number',
                 'default' => 25
             ],
-            [
-                'name' => 'visible',
-                'type' => 'checkbox',
-                'label' => 'Visible',
-                'default' => true
-            ],
-            [
-                'name' => 'active',
-                'type' => 'checkbox',
-                'label' => 'Activo',
-                'default' => true
-            ],
         ]);
     }
 
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    protected function setupReorderOperation()
-    {
-        $this->crud->set('reorder.label', 'name');
-        $this->crud->set('reorder.max_level', 0);
     }
 }
