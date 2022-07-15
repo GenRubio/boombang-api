@@ -26,7 +26,7 @@ class ParametricTableRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255'
+            'name' => 'required|unique:parametric_tables,name,'. request()->route()->id
         ];
     }
 
