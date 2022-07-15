@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Scenery;
 use App\Models\Parametric\MenuCategory;
 use App\Models\Parametric\SceneryModel;
-use App\Http\Requests\PublicSceneryRequest;
+use App\Http\Requests\GameSceneryRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-class PublicSceneryCrudController extends CrudController
+class GameSceneryCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
@@ -20,9 +20,9 @@ class PublicSceneryCrudController extends CrudController
 
     public function setup()
     {
-        CRUD::setModel(\App\Models\PublicScenery::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/public-scenery');
-        CRUD::setEntityNameStrings('escenario', 'escenarios areas');
+        CRUD::setModel(\App\Models\GameScenery::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/game-scenery');
+        CRUD::setEntityNameStrings('escenario', 'escenarios juegos');
     }
 
     protected function setupListOperation()
@@ -72,7 +72,7 @@ class PublicSceneryCrudController extends CrudController
 
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(PublicSceneryRequest::class);
+        CRUD::setValidation(GameSceneryRequest::class);
 
         $this->crud->addFields([
             [
@@ -99,7 +99,7 @@ class PublicSceneryCrudController extends CrudController
                     'readonly'    => 'readonly',
                     'disabled'    => 'disabled',
                 ],
-                'value' => 1
+                'value' => 3
             ], 
             [
                 'label'     => "Modelo",

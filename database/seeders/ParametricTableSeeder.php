@@ -32,6 +32,8 @@ class ParametricTableSeeder extends Seeder
             ['id' => 13, 'name' => 'catalogue_categories', 'comment' => 'Categorias de catalago', 'created_at' => $this->now],
             ['id' => 14, 'name' => 'friend_icons', 'comment' => 'Iconos de amigos de la BPad', 'created_at' => $this->now],
             ['id' => 15, 'name' => 'effects', 'comment' => 'Efectos o pociones', 'created_at' => $this->now],
+            ['id' => 16, 'name' => 'mini_games', 'comment' => 'MiniJuegos tabla', 'created_at' => $this->now],
+            ['id' => 17, 'name' => 'island_types', 'comment' => 'Tipos de Isla', 'created_at' => $this->now],
         ]);
     }
 }

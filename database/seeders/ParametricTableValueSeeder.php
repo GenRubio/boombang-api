@@ -134,6 +134,15 @@ class ParametricTableValueSeeder extends Seeder
             ['id' => 115, 'parametric_table_id' => 15, 'name' => 'Efecto alien 4', 'parameter' => 45, 'created_at' => $this->now],
             ['id' => 116, 'parametric_table_id' => 15, 'name' => 'Efecto alien 5', 'parameter' => 46, 'created_at' => $this->now],
             ['id' => 117, 'parametric_table_id' => 15, 'name' => 'Efecto alien 6', 'parameter' => 47, 'created_at' => $this->now],
+            ['id' => 118, 'parametric_table_id' => 16, 'name' => 'Ring', 'parameter' => 0, 'created_at' => $this->now],
+            ['id' => 119, 'parametric_table_id' => 16, 'name' => 'Sendero Oculto', 'parameter' => 0, 'created_at' => $this->now],
+            ['id' => 120, 'parametric_table_id' => 16, 'name' => 'Cocos Locos', 'parameter' => 0, 'created_at' => $this->now],
+            ['id' => 121, 'parametric_table_id' => 16, 'name' => 'Camino Ninja', 'parameter' => 0, 'created_at' => $this->now],
+            ['id' => 122, 'parametric_table_id' => 17, 'name' => 'Isla perdida', 'parameter' => 1, 'created_at' => $this->now],
+            ['id' => 123, 'parametric_table_id' => 17, 'name' => 'Isla volcan', 'parameter' => 2, 'created_at' => $this->now],
+            ['id' => 124, 'parametric_table_id' => 17, 'name' => 'Isla hielo', 'parameter' => 3, 'created_at' => $this->now],
+            ['id' => 125, 'parametric_table_id' => 17, 'name' => 'Isla desierto', 'parameter' => 4, 'created_at' => $this->now],
+            ['id' => 126, 'parametric_table_id' => 17, 'name' => 'Isla de terror', 'parameter' => 5, 'created_at' => $this->now],
         ]);
     }
 }
