@@ -29,4 +29,5 @@ Route::group([
     Route::crud('parametric-table-value', 'ParametricTableValueCrudController');
     Route::crud('data-user', 'DataUserCrudController');
     Route::crud('scenery', 'SceneryCrudController');
+    Route::crud('public-scenery', 'PublicSceneryCrudController');
 }); // this should be the absolute last line of this file
