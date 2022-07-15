@@ -15,6 +15,7 @@ class CreateSceneriesTable extends Migration
     {
         Schema::create('sceneries', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
             $table->string('file_name');
             $table->text('file_path');
             $table->text('bit_map')->nullable();

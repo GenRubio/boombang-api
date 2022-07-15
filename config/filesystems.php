@@ -53,6 +53,16 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'game_public_sceneries'=> [
+            'driver' => 'local',
+            'root' => public_path('static/dswmedia/escenarios/publicos'),
+        ],
+
+        'game_private_sceneries'=> [
+            'driver' => 'local',
+            'root' => public_path('static/dswmedia/escenarios/privados'),
+        ],
+
     ],
 
     /*

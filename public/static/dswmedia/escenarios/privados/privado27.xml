@@ -41,37 +41,25 @@
 	<coordenates x="-804" y="335"/>    
    	<grupoScene id="2"/>
     <puertas>
-    	<puerta id="1" name="mcPuerta1" backDoor="true"/>
+    	<puerta id="1" name="mcPuerta1" backDoor="true" />    	
     </puertas>
     
     <layers>            	
-    	<layer id="0" name="mcBackground" 				idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		<layer id="1" name="mcHouse_FX" 				idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		<layer id="2" name="mcWall" 					idprof="0" regpointx="0" regpointy="0" idcolor="0"/>		
-		<layer id="3" name="mcSkin01_Part01" 			idprof="0" regpointx="0" regpointy="0" idcolor="1"/>
-		<layer id="4" name="mcFloor01_Part01" 			idprof="0" regpointx="0" regpointy="0" idcolor="2"/>
-		<layer id="5" name="mcFloor01_FX" 				idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		<layer id="6" name="mcFX" 						idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		<layer id="7" name="mcWindows_FX" 				idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		<layer id="8" name="mcWallLight01_OFF_Shadow" 	idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		<layer id="9" name="mcWallLight01_OFF_Part01" 	idprof="0" regpointx="0" regpointy="0" idcolor="3"/>
-		<!--
-		<layer id="10" name="mcWallLight01_ON_Shadow" 	idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		<layer id="11" name="mcWallLight01_ON_Part01" 	idprof="0" regpointx="0" regpointy="0" idcolor="4"/>
-		<layer id="12" name="mcWallLight01_ON_FX" 		idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		-->
-		<layer id="13" name="mcCeilingLamp03_OFF_Part02"idprof="2" regpointx="0" regpointy="0" idcolor="5"/>
-		<layer id="14" name="mcCeilingLamp03_OFF_Part01"idprof="2" regpointx="0" regpointy="0" idcolor="6"/>
-		<layer id="15" name="mcCeilingLamp03_OFF_FX" 	idprof="2" regpointx="0" regpointy="0" idcolor="-1"/>
-		<!-- 
-		<layer id="16" name="mcCeilingLamp03_ON_FX_1" 	idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		<layer id="17" name="mcCeilingLamp03_ON_Part02" idprof="0" regpointx="0" regpointy="0" idcolor="7"/>
-		<layer id="18" name="mcCeilingLamp03_ON_Part01" idprof="0" regpointx="0" regpointy="0" idcolor="8"/>
-		<layer id="19" name="mcCeilingLamp03_ON_FX" 	idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
-		 -->
-		<layer id="20" name="mcDoor02_FX" 				idprof="2" regpointx="0" regpointy="0" idcolor="-1"/>		 		
-		<layer id="21" name="mcPuerta1" 				idprof="2" regpointx="0" regpointy="0" idcolor="-1"/>
-		
+    	<layer id="0" name="mcBackground" 				 idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
+		<layer id="1" name="mcHouse_FX" 				 idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
+		<layer id="2" name="mcWall" 					 idprof="0" regpointx="0" regpointy="0" idcolor="0"/>		
+		<layer id="3" name="mcSkin01_Part01" 			 idprof="0" regpointx="0" regpointy="0" idcolor="1"/>
+		<layer id="4" name="mcFloor01_Part01" 			 idprof="0" regpointx="0" regpointy="0" idcolor="2"/>
+		<layer id="5" name="mcFloor01_FX" 				 idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
+		<layer id="6" name="mcFX" 						 idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
+		<layer id="7" name="mcWindows_FX" 				 idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
+		<layer id="8" name="mcWallLight01_OFF_Shadow" 	 idprof="0" regpointx="0" regpointy="0" idcolor="-1"/>
+		<layer id="9" name="mcWallLight01_OFF_Part01" 	 idprof="0" regpointx="0" regpointy="0" idcolor="3"/>
+		<layer id="13" name="mcCeilingLamp03_OFF_Part02" idprof="2" regpointx="0" regpointy="0" idcolor="5"/>
+		<layer id="14" name="mcCeilingLamp03_OFF_Part01" idprof="2" regpointx="0" regpointy="0" idcolor="6"/>
+		<layer id="15" name="mcCeilingLamp03_OFF_FX" 	 idprof="2" regpointx="0" regpointy="0" idcolor="-1"/>
+		<layer id="20" name="mcDoor02_FX" 				 idprof="2" regpointx="0" regpointy="0" idcolor="-1"/>		 		
+		<layer id="21" name="mcPuerta1" 				 idprof="2" regpointx="0" regpointy="0" idcolor="-1"/>
     </layers> 
         
     <colors idAlpha="1">
@@ -83,6 +71,6 @@
 		<color id="5" rgb="FFE9CB" alpha="100" pointx="85" pointy="63" name="mcOfficeCeilingLamp03_OFF_Part02"/>
 		<color id="6" rgb="D9F3FF" alpha="100" pointx="61" pointy="76" name="mcOfficeCeilingLamp03_OFF_Part01"/>
 		<color id="7" rgb="FFFFFF" alpha="100" pointx="72" pointy="72" name="mcOfficeCeilingLamp03_ON_Part02"/>
-		<color id="8" rgb="FFFFFF" alpha="100" pointx="72" pointy="72" name="mcOfficeCeilingLamp03_ON_Part01"/>		
-    </colors>    
+		<color id="8" rgb="FFFFFF" alpha="100" pointx="72" pointy="72" name="mcOfficeCeilingLamp03_ON_Part01"/>
+    </colors>
 </escenario>
