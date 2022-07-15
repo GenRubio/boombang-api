@@ -7,6 +7,13 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('data-user') }}'><i class='nav-icon la la-question'></i> Users data</a></li>
     </ul>
 </li>
+<li class="nav-title">ESCENARIOS</li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('scenery') }}'><i class='nav-icon la la-question'></i> Escenarios</a></li>
+<li class="nav-item nav-dropdown">
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class='nav-icon la la-question'></i> Tipos</a>
+    <ul class="nav-dropdown-items">
+    </ul>
+</li>
 <li class="nav-title">TABLAS PARAMETRICAS</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('parametric-table') }}'><i class='nav-icon la la-question'></i> Tablas</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('parametric-table-value') }}'><i class='nav-icon la la-question'></i> Valores</a></li>
