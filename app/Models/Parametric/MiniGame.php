@@ -4,7 +4,7 @@ namespace App\Models\Parametric;
 
 use App\Models\ParametricTableValue;
 
-class MiniGames extends ParametricTableValue
+class MiniGame extends ParametricTableValue
 {
     public $parametricTableName = 'mini_games';
 

@@ -16,6 +16,7 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('game-scenery') }}'><i class='nav-icon la la-question'></i> Juegos</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('island-scenery') }}'><i class='nav-icon la la-question'></i> Islas</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('home-scenery') }}'><i class='nav-icon la la-question'></i> Casas</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('mini-game-scenery') }}'><i class='nav-icon la la-question'></i> MiniJuegos</a></li>
     </ul>
 </li>
 <li class="nav-title">TABLAS PARAMETRICAS</li>
