@@ -32,4 +32,5 @@ Route::group([
     Route::crud('public-scenery', 'PublicSceneryCrudController');
     Route::crud('game-scenery', 'GameSceneryCrudController');
     Route::crud('island-scenery', 'IslandSceneryCrudController');
+    Route::crud('home-scenery', 'HomeSceneryCrudController');
 }); // this should be the absolute last line of this file
