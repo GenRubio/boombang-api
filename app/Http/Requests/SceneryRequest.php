@@ -26,10 +26,10 @@ class SceneryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
+            'param_scenary_type_id' => 'required',
             'file_name' => 'required',
             'file_path' => 'required',
-            'bit_map' => 'required'
+            'parameter' => 'required'
         ];
     }
 

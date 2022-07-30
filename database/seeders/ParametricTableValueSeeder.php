@@ -143,6 +143,9 @@ class ParametricTableValueSeeder extends Seeder
             ['id' => 124, 'parametric_table_id' => 17, 'name' => 'Isla hielo', 'parameter' => 3, 'created_at' => $this->now],
             ['id' => 125, 'parametric_table_id' => 17, 'name' => 'Isla desierto', 'parameter' => 4, 'created_at' => $this->now],
             ['id' => 126, 'parametric_table_id' => 17, 'name' => 'Isla de terror', 'parameter' => 5, 'created_at' => $this->now],
+            ['id' => 127, 'parametric_table_id' => 18, 'name' => 'Privado', 'parameter' => 0, 'created_at' => $this->now],
+            ['id' => 128, 'parametric_table_id' => 18, 'name' => 'Publico', 'parameter' => 0, 'created_at' => $this->now],
+            ['id' => 129, 'parametric_table_id' => 18, 'name' => 'MGame', 'parameter' => 0, 'created_at' => $this->now],
         ]);
     }
 }

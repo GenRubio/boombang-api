@@ -68,6 +68,7 @@ class ScenerieSeeder extends Seeder
     private function insertBrokenScenery1()
     {
         return [
+            'param_scenary_type_id' => 128,
             'name' => "escenario1",
             'file_name' => "escenario1",
             'file_path' => "static/dswmedia/escenarios/publicos/escenario1.swf",
@@ -112,6 +113,7 @@ class ScenerieSeeder extends Seeder
         $parameter = str_replace(".xml", "", $file);
         $parameter = str_replace("privado", "", $parameter);
         return [
+            'param_scenary_type_id' => 127,
             'name' => $xmlContent['nameScene']['@attributes']['name'],
             'file_name' => str_replace(".xml", "", $file),
             'file_path' => $filePath,
@@ -126,6 +128,7 @@ class ScenerieSeeder extends Seeder
         $parameter = str_replace(".xml", "", $file);
         $parameter = str_replace("escenario", "", $parameter);
         return [
+            'param_scenary_type_id' => 128,
             'name' => str_replace(".xml", "", $file),
             'file_name' => str_replace(".xml", "", $file),
             'file_path' => $filePath,
