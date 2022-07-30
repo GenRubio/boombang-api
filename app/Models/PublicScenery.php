@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Parametric\MenuCategory;
-use App\Models\Parametric\SceneryModel;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,10 +21,9 @@ class PublicScenery extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
+        'param_menu_category_id',
         'parent_id',
         'scenery_id',
-        'menu_category_id',
-        'scenery_model_id',
         'name',
         'position_x',
         'position_y',
@@ -60,12 +58,7 @@ class PublicScenery extends Model
 
     public function menuCategory()
     {
-        return $this->belongsTo(MenuCategory::class, 'menu_category_id');
-    }
-
-    public function sceneryModel()
-    {
-        return $this->belongsTo(SceneryModel::class, 'scenery_model_id');
+        return $this->belongsTo(MenuCategory::class, 'param_menu_category_id');
     }
 
     /*

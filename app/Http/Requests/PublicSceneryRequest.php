@@ -28,8 +28,7 @@ class PublicSceneryRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'scenery_id' => 'required',
-            'menu_category_id' => 'required',
-            'scenery_model_id' => 'required',
+            'param_menu_category_id' => 'required',
             'position_x' => 'required',
             'position_y' => 'required',
             'max_visitors' => 'required',

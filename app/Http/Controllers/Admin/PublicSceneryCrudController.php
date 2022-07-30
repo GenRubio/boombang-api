@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Scenery;
+use App\Enums\ParametricEnum;
 use App\Models\Parametric\MenuCategory;
-use App\Models\Parametric\SceneryModel;
 use App\Http\Requests\PublicSceneryRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -45,13 +45,6 @@ class PublicSceneryCrudController extends CrudController
             'model'     => MenuCategory::class,
         ]);
         $this->crud->addColumn([
-            'name' => 'sceneryModel',
-            'label' => 'Modelo',
-            'type' => 'relationship',
-            'attribute' => 'name',
-            'model'     => SceneryModel::class,
-        ]);
-        $this->crud->addColumn([
             'name' => 'scenery',
             'label' => 'Escenario',
             'type' => 'relationship',
@@ -87,32 +80,23 @@ class PublicSceneryCrudController extends CrudController
                 'entity'    => 'scenery',
                 'model'     => Scenery::class,
                 'attribute' => 'name',
+                'options'   => (function ($query) {
+                    return $query->where('param_scenary_type_id', ParametricEnum::SCENERY_TYPES['PUBLIC'])
+                        ->get();
+                }),
             ],
             [
                 'label'     => "Categoria",
                 'type'      => 'select2',
-                'name'      => 'menu_category_id',
+                'name'      => 'param_menu_category_id',
                 'entity'    => 'menuCategory',
                 'model'     => MenuCategory::class,
                 'attribute' => 'name',
-                'attributes' => [
-                    'readonly'    => 'readonly',
-                    'disabled'    => 'disabled',
-                ],
-                'value' => 1
-            ], 
-            [
-                'label'     => "Modelo",
-                'type'      => 'select2',
-                'name'      => 'scenery_model_id',
-                'entity'    => 'sceneryModel',
-                'model'     => SceneryModel::class,
-                'attribute' => 'name',
-                'attributes' => [
-                    'readonly'    => 'readonly',
-                    'disabled'    => 'disabled',
-                ],
-                'value' => 1
+                'options'   => (function ($query) {
+                    return $query->where('id', ParametricEnum::MENU_CATEGORIES['AREA'])
+                        ->orWhere('id', ParametricEnum::MENU_CATEGORIES['GAME'])
+                        ->get();
+                }),
             ],
             [
                 'name' => 'position_x',

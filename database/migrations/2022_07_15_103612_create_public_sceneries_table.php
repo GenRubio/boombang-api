@@ -15,10 +15,9 @@ class CreatePublicSceneriesTable extends Migration
     {
         Schema::create('public_sceneries', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('param_menu_category_id');
             $table->integer('parent_id')->default(0)->nullable();
             $table->unsignedBigInteger('scenery_id');
-            $table->unsignedBigInteger('menu_category_id');
-            $table->unsignedBigInteger('scenery_model_id');
             $table->text('name');
             $table->integer('position_x')->default(11);
             $table->integer('position_y')->default(11);
@@ -32,19 +31,14 @@ class CreatePublicSceneriesTable extends Migration
             $table->boolean('active')->default(true);
             $table->timestamps();
 
+            $table->foreign('param_menu_category_id')
+                ->references('id')
+                ->on('parametric_table_values')
+                ->cascadeOnDelete();
+
             $table->foreign('scenery_id')
                 ->references('id')
                 ->on('sceneries')
-                ->cascadeOnDelete();
-
-            $table->foreign('menu_category_id')
-                ->references('id')
-                ->on('parametric_table_values')
-                ->cascadeOnDelete();
-
-            $table->foreign('scenery_model_id')
-                ->references('id')
-                ->on('parametric_table_values')
                 ->cascadeOnDelete();
         });
     }

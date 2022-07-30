@@ -12,6 +12,7 @@
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class='nav-icon la la-question'></i> Tipos</a>
     <ul class="nav-dropdown-items">
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('public-scenery') }}'><i class='nav-icon la la-question'></i> Publicos</a></li>
     </ul>
 </li>
 <li class="nav-title">CATALAGO</li>
