@@ -8,15 +8,9 @@
     </ul>
 </li>
 <li class="nav-title">ESCENARIOS</li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('scenery') }}'><i class='nav-icon la la-question'></i> Escenarios</a></li>
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class='nav-icon la la-question'></i> Tipos</a>
     <ul class="nav-dropdown-items">
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('public-scenery') }}'><i class='nav-icon la la-question'></i> Areas</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('game-scenery') }}'><i class='nav-icon la la-question'></i> Juegos</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('island-scenery') }}'><i class='nav-icon la la-question'></i> Islas</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('home-scenery') }}'><i class='nav-icon la la-question'></i> Casas</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('mini-game-scenery') }}'><i class='nav-icon la la-question'></i> MiniJuegos</a></li>
     </ul>
 </li>
 <li class="nav-title">CATALAGO</li>
