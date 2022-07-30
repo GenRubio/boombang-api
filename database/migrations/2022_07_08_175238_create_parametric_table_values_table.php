@@ -17,7 +17,7 @@ class CreateParametricTableValuesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('parametric_table_id');
             $table->string('name');
-            $table->integer('parameter');
+            $table->integer('parameter')->nullable();
             $table->timestamps();
 
             $table->foreign('parametric_table_id')
