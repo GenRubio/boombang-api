@@ -19,7 +19,6 @@ use Illuminate\Routing\Controller as BaseController;
  *    url="http://127.0.0.1:8000/api/v1/"
  * ),
  */
-//php artisan l5-swagger:generate
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

@@ -6,5 +6,22 @@ use Illuminate\Http\Request;
 
 interface SceneriesControllerInterface
 {
-    public function get();
+    /**
+     * @OA\Get(
+     * path="/eseneries/publics/all",
+     * summary="Get Public Esceneries",
+     * description="Get Public Esceneries",
+     * operationId="getPublicEsceneries",
+     * tags={"Esceneries"},
+     * @OA\Response(
+     *    response=200,
+     *    description="Results limit exceeded",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="")
+     *        )
+     *     )
+     * )
+     * 
+     */
+    public function getAll();
 }

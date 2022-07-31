@@ -8,8 +8,8 @@ use App\Http\Controllers\Api\v1\Sceneries\Interfaces\SceneriesControllerInterfac
 
 class SceneriesController extends Controller implements SceneriesControllerInterface
 {
-    public function get()
+    public function getAll()
     {
-
+        return response()->json(['success' => "Hola"]);
     }
 }

@@ -1,0 +1,44 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "BoomBang API",
+        "description": "BoomBang API - Swagger\r\n *    To be able to authorize api write in Authorize: Bearer {token}",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api/v1/",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "/eseneries/publics/all": {
+            "get": {
+                "tags": [
+                    "Esceneries"
+                ],
+                "summary": "Get Public Esceneries",
+                "description": "Get Public Esceneries",
+                "operationId": "getPublicEsceneries",
+                "responses": {
+                    "200": {
+                        "description": "Results limit exceeded",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
