@@ -18,11 +18,11 @@ class ParametricTableService extends Controller
      */
     public function __construct()
     {
-        $this->ParametricTableRepository = new ParametricTableRepository();
+        $this->parametricTableRepository = new ParametricTableRepository();
     }
 
     public function getAll()
     {
-        return $this->ParametricTableRepository->getAll();
+        return $this->parametricTableRepository->getAll();
     }
 }

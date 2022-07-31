@@ -3,7 +3,7 @@
 namespace App\Services\Parametric;
 
 use App\Http\Controllers\Controller;
-use App\Models\SceneryType;
+use App\Models\Parametric\SceneryType;
 use App\Repositories\Parametric\SceneryType\SceneryTypeRepository;
 
 /**

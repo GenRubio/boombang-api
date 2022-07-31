@@ -8,5 +8,5 @@ namespace App\Repositories\PublicScenery;
  */
 interface PublicSceneryRepositoryInterface
 {
-    //
+    public function getAll();
 }

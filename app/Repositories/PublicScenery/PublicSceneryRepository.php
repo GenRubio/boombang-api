@@ -25,4 +25,9 @@ class PublicSceneryRepository extends Repository implements PublicSceneryReposit
         $this->model = new PublicScenery();
         parent::__construct($this->model);
     }
+
+    public function getAll()
+    {
+        return $this->model->active()->get();
+    }
 }

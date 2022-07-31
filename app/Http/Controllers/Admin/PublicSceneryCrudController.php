@@ -6,6 +6,7 @@ use App\Models\Scenery;
 use App\Enums\ParametricEnum;
 use App\Models\Parametric\MenuCategory;
 use App\Http\Requests\PublicSceneryRequest;
+use App\Services\Parametric\MenuCategoryService;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -23,6 +24,7 @@ class PublicSceneryCrudController extends CrudController
         CRUD::setModel(\App\Models\PublicScenery::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/public-scenery');
         CRUD::setEntityNameStrings('escenario', 'escenarios areas');
+        $this->menuCategoryService = new MenuCategoryService();
     }
 
     protected function setupListOperation()
@@ -61,6 +63,30 @@ class PublicSceneryCrudController extends CrudController
             'type' => 'btnToggle',
             'label' => 'Activo',
         ]);
+
+        $this->setFilters();
+    }
+
+    private function setFilters()
+    {
+        $this->crud->addFilter([
+            'name' => 'param_menu_category_id',
+            'type' => 'select2',
+            'label' => 'Categorias',
+        ], function () {
+            $data = [];
+            foreach ($this->menuCategoryService->getAll() as $menuCategory) {
+                if (
+                    $menuCategory->id == ParametricEnum::MENU_CATEGORIES['AREA']
+                    || $menuCategory->id == ParametricEnum::MENU_CATEGORIES['GAME']
+                ) {
+                    $data[$menuCategory->id] = $menuCategory->name;
+                }
+            }
+            return $data;
+        }, function ($value) {
+            $this->crud->addClause('where', 'param_menu_category_id', $value);
+        });
     }
 
     protected function setupCreateOperation()

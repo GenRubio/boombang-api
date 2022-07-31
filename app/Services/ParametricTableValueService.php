@@ -17,7 +17,7 @@ class ParametricTableValueService extends Controller
      */
     public function __construct()
     {
-        $this->ParametricTableValueRepository = new ParametricTableValueRepository();
+        $this->parametricTableValueRepository = new ParametricTableValueRepository();
     }
 
 }
