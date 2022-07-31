@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             ParametricTableSeeder::class,
             ParametricTableValueSeeder::class,
             UsersSeeder::class,
-            ScenerieSeeder::class
+            ScenerieSeeder::class,
+            ItemsSeeder::class
         ]);
     }
 }
