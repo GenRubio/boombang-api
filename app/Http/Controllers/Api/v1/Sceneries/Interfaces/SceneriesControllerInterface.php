@@ -8,11 +8,11 @@ interface SceneriesControllerInterface
 {
     /**
      * @OA\Get(
-     * path="/eseneries/publics/all",
+     * path="/sceneries/publics/all",
      * summary="Get Public Esceneries",
      * description="Get Public Esceneries",
      * operationId="getPublicEsceneries",
-     * tags={"Esceneries"},
+     * tags={"Sceneries"},
      * @OA\Response(
      *    response=200,
      *    description="Results limit exceeded",

@@ -12,10 +12,10 @@
         }
     ],
     "paths": {
-        "/eseneries/publics/all": {
+        "/sceneries/publics/all": {
             "get": {
                 "tags": [
-                    "Esceneries"
+                    "Sceneries"
                 ],
                 "summary": "Get Public Esceneries",
                 "description": "Get Public Esceneries",

@@ -18,7 +18,7 @@ use App\Http\Controllers\Api\v1\Sceneries\SceneriesController;
 Route::group([
     'prefix' => 'v1',
 ], function () {
-    Route::prefix('eseneries')->group(function () {
+    Route::prefix('sceneries')->group(function () {
         Route::prefix('publics')->group(function (){
             Route::get('all', [SceneriesController::class, 'getAll']);
         });
