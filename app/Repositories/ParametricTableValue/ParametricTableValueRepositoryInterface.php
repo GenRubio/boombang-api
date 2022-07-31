@@ -8,5 +8,5 @@ namespace App\Repositories\ParametricTableValue;
  */
 interface ParametricTableValueRepositoryInterface
 {
-    //
+    public function getById($id);
 }

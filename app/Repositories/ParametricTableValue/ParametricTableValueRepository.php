@@ -25,4 +25,9 @@ class ParametricTableValueRepository extends Repository implements ParametricTab
         $this->model = new ParametricTableValue();
         parent::__construct($this->model);
     }
+
+    public function getById($id)
+    {
+        return $this->model->find($id);
+    }
 }

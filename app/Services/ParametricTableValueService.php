@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Http\Controllers\Controller;
 use App\Models\ParametricTableValue;
 use App\Repositories\ParametricTableValue\ParametricTableValueRepository;
+
 /**
  * Class ParametricTableValueService
  * @package App\Services\ParametricTableValue
@@ -20,4 +21,8 @@ class ParametricTableValueService extends Controller
         $this->parametricTableValueRepository = new ParametricTableValueRepository();
     }
 
+    public function getById($id)
+    {
+        return $this->parametricTableValueRepository->getById($id);
+    }
 }
