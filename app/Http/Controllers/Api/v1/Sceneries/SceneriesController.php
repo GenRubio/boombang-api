@@ -12,7 +12,7 @@ use App\Http\Controllers\Api\v1\Sceneries\Interfaces\SceneriesControllerInterfac
 
 class SceneriesController extends Controller implements SceneriesControllerInterface
 {
-    public function getAll()
+    public function getPublicsAll()
     {
         try{
             $sceneries = (new PublicSceneryService())->getAll();

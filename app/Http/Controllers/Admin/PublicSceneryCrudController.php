@@ -23,7 +23,7 @@ class PublicSceneryCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\PublicScenery::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/public-scenery');
-        CRUD::setEntityNameStrings('escenario', 'escenarios areas');
+        CRUD::setEntityNameStrings('escenario', 'escenarios publicos');
         $this->menuCategoryService = new MenuCategoryService();
     }
 

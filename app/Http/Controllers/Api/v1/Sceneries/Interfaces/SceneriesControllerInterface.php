@@ -23,5 +23,5 @@ interface SceneriesControllerInterface
      * )
      * 
      */
-    public function getAll();
+    public function getPublicsAll();
 }

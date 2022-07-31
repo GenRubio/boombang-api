@@ -20,7 +20,7 @@ Route::group([
 ], function () {
     Route::prefix('sceneries')->group(function () {
         Route::prefix('publics')->group(function (){
-            Route::get('all', [SceneriesController::class, 'getAll']);
+            Route::get('all', [SceneriesController::class, 'getPublicsAll']);
         });
     });
 });
