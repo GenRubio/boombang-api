@@ -63,6 +63,11 @@ return [
             'root' => public_path('static/dswmedia/escenarios/privados'),
         ],
 
+        'items_images'=> [
+            'driver' => 'local',
+            'root' => public_path('images/scenery/items'),
+        ],
+
     ],
 
     /*

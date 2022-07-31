@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('param_item_capture_id');
             $table->text('name')->nullable();
             $table->text('image')->nullable();
-            $table->text('parameter')->default("0");
+            $table->text('parameter')->default("0"); 
             $table->integer('appearance_time')->default(120);
             $table->boolean('throw_in_all_public_sceneries')->default(true);
             $table->boolean('throw_in_private_sceneries')->default(true);
