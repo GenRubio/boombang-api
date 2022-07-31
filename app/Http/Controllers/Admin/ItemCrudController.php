@@ -136,6 +136,12 @@ class ItemCrudController extends CrudController
                 'default' => 20
             ],
             [
+                'name' => 'catch_message',
+                'label' => 'Mensaje',
+                'type' => 'text',
+                'default' => "ha atrapado "
+            ],
+            [
                 'name' => 'parameter',
                 'label' => 'Parametro',
                 'type' => 'text',

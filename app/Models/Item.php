@@ -26,6 +26,7 @@ class Item extends Model
         'param_item_capture_id',
         'name',
         'image',
+        'catch_message',
         'parameter',
         'appearance_time',
         'throw_in_all_public_sceneries',
