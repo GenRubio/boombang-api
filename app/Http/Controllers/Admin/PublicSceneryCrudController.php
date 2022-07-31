@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Models\Scenery;
 use App\Enums\ParametricEnum;
+use Illuminate\Support\Facades\DB;
+use Prologue\Alerts\Facades\Alert;
 use App\Services\PublicSceneryService;
 use App\Models\Parametric\MenuCategory;
 use App\Http\Requests\PublicSceneryRequest;
+use App\Models\PublicScenery;
 use App\Services\Parametric\MenuCategoryService;
 use App\Services\Parametric\CharacterLookService;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -18,7 +22,9 @@ class PublicSceneryCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation {
+        update as traitUpdate;
+    }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
@@ -108,6 +114,34 @@ class PublicSceneryCrudController extends CrudController
         $this->setIndicatorsFieldsTab();
     }
 
+    protected function update()
+    {
+        try {
+            DB::beginTransaction();
+            $currentEntry = $this->crud->getCurrentEntry();
+            $indicators = json_decode($this->crud->getRequest()->get('floor_indicators'));
+            $syncData = [];
+            foreach($indicators as $indicator){
+                $syncData[] = [
+                    'public_scenery_id' => $indicator->public_scenery_id,
+                    'param_scenery_floor_indicator_id' => $indicator->param_scenery_floor_indicator_id,
+                    'indicator_position_x' => $indicator->indicator_position_x,
+                    'indicator_position_y' => $indicator->indicator_position_y,
+                    'next_scenery_id' => $indicator->next_scenery_id,
+                    'next_scenery_position_x' => $indicator->next_scenery_position_x,
+                    'next_scenery_position_y' => $indicator->next_scenery_position_y,
+                    'next_scenery_position_z' => $indicator->next_scenery_position_z
+                ];
+            }
+            $currentEntry->indicators()->sync($syncData);
+            DB::commit();
+            return $this->traitUpdate();
+        } catch (Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->withErrors(['error' => "Ha ocurrido un error inesperado"]);
+        }
+    }
+
     private function setIndicatorsFieldsTab()
     {
         $indicators = [];
@@ -122,14 +156,36 @@ class PublicSceneryCrudController extends CrudController
         foreach ($this->characterLookService->getAll() as $look) {
             $characterLooks[$look->id] = $look->name;
         }
+
+        $sceneryIndicators = $this->crud->getCurrentEntry()->indicators;
+        $indicatorsToEdit = [];
+        foreach ($sceneryIndicators as $indicator) {
+            $indicatorsToEdit[] = [
+                'param_scenery_floor_indicator_id' => $indicator->pivot->param_scenery_floor_indicator_id,
+                'indicator_position_x' => $indicator->pivot->indicator_position_x,
+                'indicator_position_y' => $indicator->pivot->indicator_position_y,
+                'next_scenery_id' => $indicator->pivot->next_scenery_id,
+                'next_scenery_position_x' => $indicator->pivot->next_scenery_position_x,
+                'next_scenery_position_y' => $indicator->pivot->next_scenery_position_y,
+                'next_scenery_position_z' => $indicator->pivot->next_scenery_position_z
+            ];
+        }
+
+        $jsonIndicators = json_encode($indicatorsToEdit);
         $this->crud->addFields([
             [
                 'name'  => 'floor_indicators',
                 'label' => 'Indicadores',
                 'type'  => 'repeatable',
+                'value' => $jsonIndicators,
                 'fields' => [
                     [
-                        'name' => 'indicator_id',
+                        'name' => 'public_scenery_id',
+                        'type' => 'hidden',
+                        'value' => $this->crud->getCurrentEntry()->id
+                    ],
+                    [
+                        'name' => 'param_scenery_floor_indicator_id',
                         'label' => "Indicador",
                         'type' => 'select2_from_array',
                         'options' => $indicators,
