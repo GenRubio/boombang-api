@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Scenery;
 use App\Enums\ParametricEnum;
+use App\Services\PublicSceneryService;
 use App\Models\Parametric\MenuCategory;
 use App\Http\Requests\PublicSceneryRequest;
 use App\Services\Parametric\MenuCategoryService;
+use App\Services\Parametric\CharacterLookService;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Services\Parametric\SceneryFloorIndicatorService;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 class PublicSceneryCrudController extends CrudController
@@ -25,6 +28,9 @@ class PublicSceneryCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/public-scenery');
         CRUD::setEntityNameStrings('escenario', 'escenarios publicos');
         $this->menuCategoryService = new MenuCategoryService();
+        $this->sceneryFloorIndicatorService = new SceneryFloorIndicatorService();
+        $this->publicSceneryService = new PublicSceneryService();
+        $this->characterLookService = new CharacterLookService();
     }
 
     protected function setupListOperation()
@@ -92,7 +98,103 @@ class PublicSceneryCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(PublicSceneryRequest::class);
+        $this->setSceneryFieldsTab();
+    }
 
+    protected function setupUpdateOperation()
+    {
+        CRUD::setValidation(PublicSceneryRequest::class);
+        $this->setSceneryFieldsTab();
+        $this->setIndicatorsFieldsTab();
+    }
+
+    private function setIndicatorsFieldsTab()
+    {
+        $indicators = [];
+        foreach ($this->sceneryFloorIndicatorService->getAll() as $indicator) {
+            $indicators[$indicator->id] = $indicator->name;
+        }
+        $publicSceneries = [];
+        foreach ($this->publicSceneryService->getAll() as $scenery) {
+            $publicSceneries[$scenery->id] = $scenery->name;
+        }
+        $characterLooks = [];
+        foreach ($this->characterLookService->getAll() as $look) {
+            $characterLooks[$look->id] = $look->name;
+        }
+        $this->crud->addFields([
+            [
+                'name'  => 'floor_indicators',
+                'label' => 'Indicadores',
+                'type'  => 'repeatable',
+                'fields' => [
+                    [
+                        'name' => 'indicator_id',
+                        'label' => "Indicador",
+                        'type' => 'select2_from_array',
+                        'options' => $indicators,
+                        'allows_null' => false,
+                        'wrapper' => ['class' => 'form-group col-md-6'],
+                    ],
+                    [
+                        'name'    => 'indicator_position_x',
+                        'type'    => 'number',
+                        'label'   => 'Posicion X',
+                        'default' => 11,
+                        'wrapper' => ['class' => 'form-group col-md-3'],
+                    ],
+                    [
+                        'name'    => 'indicator_position_y',
+                        'type'    => 'number',
+                        'label'   => 'Posicion Y',
+                        'default' => 11,
+                        'wrapper' => ['class' => 'form-group col-md-3'],
+                    ],
+                    [
+                        'name'  => 'separator',
+                        'type'  => 'custom_html',
+                        'value' => '<hr>'
+                    ],
+                    [
+                        'name' => 'next_scenery_id',
+                        'label' => "Escenario apricion",
+                        'type' => 'select2_from_array',
+                        'options' => $publicSceneries,
+                        'allows_null' => false,
+                        'wrapper' => ['class' => 'form-group col-md-6'],
+                    ],
+                    [
+                        'name'    => 'next_scenery_position_x',
+                        'type'    => 'number',
+                        'label'   => 'Posicion X',
+                        'default' => 11,
+                        'wrapper' => ['class' => 'form-group col-md-3'],
+                    ],
+                    [
+                        'name'    => 'next_scenery_position_y',
+                        'type'    => 'number',
+                        'label'   => 'Posicion Y',
+                        'default' => 11,
+                        'wrapper' => ['class' => 'form-group col-md-3'],
+                    ],
+                    [
+                        'name'    => 'next_scenery_position_z',
+                        'label'   => 'Mirada personaje',
+                        'type' => 'select2_from_array',
+                        'options' => $characterLooks,
+                        'allows_null' => false,
+                        'wrapper' => ['class' => 'form-group col-md-4'],
+                    ],
+                ],
+                'new_item_label'  => 'Añadir indicador',
+                'init_rows' => 0,
+                'tab' => 'Indicadores'
+            ],
+        ]);
+    }
+
+    private function setSceneryFieldsTab()
+    {
         $this->crud->addFields([
             [
                 'name' => 'name',
@@ -177,11 +279,6 @@ class PublicSceneryCrudController extends CrudController
                 'tab' => 'Escenario'
             ],
         ]);
-    }
-
-    protected function setupUpdateOperation()
-    {
-        $this->setupCreateOperation();
     }
 
     protected function setupReorderOperation()

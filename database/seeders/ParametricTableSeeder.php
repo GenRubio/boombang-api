@@ -36,6 +36,7 @@ class ParametricTableSeeder extends Seeder
             ['id' => 17, 'name' => 'island_types', 'comment' => 'Tipos de Isla', 'created_at' => $this->now],
             ['id' => 18, 'name' => 'escenary_types', 'comment' => 'Tipos de escenarios', 'created_at' => $this->now],
             ['id' => 19, 'name' => 'scenery_floor_indicators', 'comment' => 'Tipos de indicadores en suelo de un escenario', 'created_at' => $this->now],
+            ['id' => 20, 'name' => 'character_looks', 'comment' => 'Posiciones de mirada del personaje', 'created_at' => $this->now],
         ]);
     }
 }

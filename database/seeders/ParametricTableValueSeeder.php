@@ -160,6 +160,14 @@ class ParametricTableValueSeeder extends Seeder
             ['id' => 144, 'parametric_table_id' => 19, 'name' => 'Flecha diagonal derecha - arriba', 'parameter' => 15, 'created_at' => $this->now],
             ['id' => 145, 'parametric_table_id' => 19, 'name' => 'Flecha diagonal derecha - abajo', 'parameter' => 16, 'created_at' => $this->now],
             ['id' => 146, 'parametric_table_id' => 19, 'name' => 'Flecha diagonal esquerda - abajo', 'parameter' => 17, 'created_at' => $this->now],
+            ['id' => 147, 'parametric_table_id' => 20, 'name' => 'Abajo', 'parameter' => 4, 'created_at' => $this->now],
+            ['id' => 148, 'parametric_table_id' => 20, 'name' => 'Derecha', 'parameter' => 1, 'created_at' => $this->now],
+            ['id' => 149, 'parametric_table_id' => 20, 'name' => 'Esquerda', 'parameter' => 2, 'created_at' => $this->now],
+            ['id' => 150, 'parametric_table_id' => 20, 'name' => 'Arriba', 'parameter' => 3, 'created_at' => $this->now],
+            ['id' => 151, 'parametric_table_id' => 20, 'name' => 'Diagonal esquerda - arriba', 'parameter' => 6, 'created_at' => $this->now],
+            ['id' => 152, 'parametric_table_id' => 20, 'name' => 'Diagonal derecha - arriba', 'parameter' => 5, 'created_at' => $this->now],
+            ['id' => 153, 'parametric_table_id' => 20, 'name' => 'Diagonal esquerda - abajo', 'parameter' => 8, 'created_at' => $this->now],
+            ['id' => 154, 'parametric_table_id' => 20, 'name' => 'Diagonal derecha - abajo', 'parameter' => 7, 'created_at' => $this->now],
         ]);
     }
 }
