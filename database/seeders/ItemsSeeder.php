@@ -28,7 +28,7 @@ class ItemsSeeder extends Seeder
                 'image' => "images/scenery/items/{$image}",
                 'parameter' => 0,
                 'appearance_time' => 20,
-                'throw_in_all_public_sceneries' => true,
+                'throw_in_public_sceneries' => true,
                 'throw_in_private_sceneries' => true,
                 'active' => false,
             ];

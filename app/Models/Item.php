@@ -29,7 +29,7 @@ class Item extends Model
         'catch_message',
         'parameter',
         'appearance_time',
-        'throw_in_all_public_sceneries',
+        'throw_in_public_sceneries',
         'throw_in_private_sceneries',
         'active',
     ];
@@ -67,6 +67,11 @@ class Item extends Model
     public function scopeActive($query)
     {
         return $query->where($this->table . '.active', 1);
+    }
+
+    public function scopeNotThrowInAllPublicSceneries($query)
+    {
+        return $query->where($this->table . '.throw_in_public_sceneries', false);
     }
 
     /*

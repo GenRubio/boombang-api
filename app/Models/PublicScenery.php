@@ -75,6 +75,11 @@ class PublicScenery extends Model
             );
     }
 
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'public_scenery_items', 'public_scenery_id', 'item_id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

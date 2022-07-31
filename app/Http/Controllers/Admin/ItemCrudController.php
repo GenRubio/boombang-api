@@ -147,7 +147,7 @@ class ItemCrudController extends CrudController
                 'type' => 'text',
             ],
             [
-                'name' => 'throw_in_all_public_sceneries',
+                'name' => 'throw_in_public_sceneries',
                 'type' => 'checkbox',
                 'label' => 'Lanzar en todos escenarios publicos',
                 'default' => true,

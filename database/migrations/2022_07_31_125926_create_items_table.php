@@ -22,7 +22,7 @@ class CreateItemsTable extends Migration
             $table->string('catch_message')->nullable()->default("ha atrapado");
             $table->text('parameter')->default("0");
             $table->integer('appearance_time')->default(120);
-            $table->boolean('throw_in_all_public_sceneries')->default(true);
+            $table->boolean('throw_in_public_sceneries')->default(true);
             $table->boolean('throw_in_private_sceneries')->default(true);
             $table->boolean('active')->default(true);
             $table->timestamps();

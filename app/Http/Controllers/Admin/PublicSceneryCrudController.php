@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Exception;
+use App\Models\Item;
 use App\Models\Scenery;
 use App\Enums\ParametricEnum;
 use Illuminate\Support\Facades\DB;
@@ -110,6 +111,7 @@ class PublicSceneryCrudController extends CrudController
         CRUD::setValidation(PublicSceneryRequest::class);
         $this->setSceneryFieldsTab();
         $this->setIndicatorsFieldsTab();
+        $this->setItemsFieldsTab();
     }
 
     protected function update()
@@ -119,7 +121,7 @@ class PublicSceneryCrudController extends CrudController
             $currentEntry = $this->crud->getCurrentEntry();
             $indicators = json_decode($this->crud->getRequest()->get('floor_indicators'));
             $syncData = [];
-            foreach($indicators as $indicator){
+            foreach ($indicators as $indicator) {
                 $syncData[] = [
                     'public_scenery_id' => $indicator->public_scenery_id,
                     'param_scenery_floor_indicator_id' => $indicator->param_scenery_floor_indicator_id,
@@ -138,6 +140,24 @@ class PublicSceneryCrudController extends CrudController
             DB::rollBack();
             return redirect()->back()->withErrors(['error' => "Ha ocurrido un error inesperado"]);
         }
+    }
+
+    private function setItemsFieldsTab()
+    {
+        $this->crud->addFields([
+            [
+                'label'     => "Items",
+                'type'      => 'select2_multiple',
+                'name'      => 'items',
+                'entity'    => 'items',
+                'model'     =>  Item::class,
+                'attribute' => 'name',
+                'options'   => (function ($query) {
+                    return $query->notThrowInAllPublicSceneries()->get();
+                }),
+                'tab' => 'Extra Items'
+           ],
+        ]);
     }
 
     private function setIndicatorsFieldsTab()
@@ -211,7 +231,7 @@ class PublicSceneryCrudController extends CrudController
                     ],
                     [
                         'name' => 'next_scenery_id',
-                        'label' => "Escenario apricion",
+                        'label' => "Escenario aparecion",
                         'type' => 'select2_from_array',
                         'options' => $publicSceneries,
                         'allows_null' => false,
