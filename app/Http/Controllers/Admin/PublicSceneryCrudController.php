@@ -98,6 +98,7 @@ class PublicSceneryCrudController extends CrudController
                 'name' => 'name',
                 'label' => 'Nombre',
                 'type' => 'text',
+                'tab' => 'Escenario'
             ],
             [
                 'label'     => "Escenario",
@@ -110,6 +111,7 @@ class PublicSceneryCrudController extends CrudController
                     return $query->where('param_scenary_type_id', ParametricEnum::SCENERY_TYPES['PUBLIC'])
                         ->get();
                 }),
+                'tab' => 'Escenario'
             ],
             [
                 'label'     => "Categoria",
@@ -123,48 +125,56 @@ class PublicSceneryCrudController extends CrudController
                         ->orWhere('id', ParametricEnum::MENU_CATEGORIES['GAME'])
                         ->get();
                 }),
+                'tab' => 'Escenario'
             ],
             [
                 'name' => 'position_x',
                 'label' => 'Posicion entrada X',
                 'type' => 'number',
-                'default' => 11
+                'default' => 11,
+                'tab' => 'Escenario'
             ],
             [
                 'name' => 'position_y',
                 'label' => 'Posicion entrada Y',
                 'type' => 'number',
-                'default' => 11
+                'default' => 11,
+                'tab' => 'Escenario'
             ],
             [
                 'name' => 'max_visitors',
                 'label' => 'Maximo jugadores en escenario',
                 'type' => 'number',
-                'default' => 12
+                'default' => 12,
+                'tab' => 'Escenario'
             ],
             [
                 'name' => 'price_uppercut',
                 'label' => 'Precio uppercut',
                 'type' => 'number',
-                'default' => 250
+                'default' => 250,
+                'tab' => 'Escenario'
             ],
             [
                 'name' => 'price_coconut',
                 'label' => 'Precio coco',
                 'type' => 'number',
-                'default' => 25
+                'default' => 25,
+                'tab' => 'Escenario'
             ],
             [
                 'name' => 'visible',
                 'type' => 'checkbox',
                 'label' => 'Visible',
-                'default' => true
+                'default' => true,
+                'tab' => 'Escenario'
             ],
             [
                 'name' => 'active',
                 'type' => 'checkbox',
                 'label' => 'Activo',
-                'default' => true
+                'default' => true,
+                'tab' => 'Escenario'
             ],
         ]);
     }
