@@ -27,7 +27,6 @@ Route::group([
     Route::crud('user', 'UserCrudController');
     Route::crud('parametric-table', 'ParametricTableCrudController');
     Route::crud('parametric-table-value', 'ParametricTableValueCrudController');
-    Route::crud('data-user', 'DataUserCrudController');
     Route::crud('public-scenery', 'PublicSceneryCrudController');
     Route::crud('scenery', 'SceneryCrudController');
     Route::crud('item', 'ItemCrudController');
