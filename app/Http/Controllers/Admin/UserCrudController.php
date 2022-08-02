@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Exception;
-use App\Models\Parametric\Avatar;
 use App\Tasks\CreateDataUserTask;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
