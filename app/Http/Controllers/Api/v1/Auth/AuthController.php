@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1\Auth;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Api\v1\Auth\Interfaces\AuthControllerInterface;
 
@@ -38,10 +39,10 @@ class AuthController extends Controller implements AuthControllerInterface
             return response(['message' => 'Invalid credentials']);
         }
 
-        $accessToken = auth()->user()->createToken('authToken')->accessToken;
+        $accessToken = getUser()->createToken('authToken')->accessToken;
 
         return response([
-            'user' => auth()->user(),
+            'user' => new UserResource(getUser()),
             'access_token' => $accessToken
         ]);
     }

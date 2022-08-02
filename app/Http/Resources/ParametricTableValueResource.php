@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ParametricTableValue extends JsonResource
+class ParametricTableValueResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
