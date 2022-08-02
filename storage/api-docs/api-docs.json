@@ -66,6 +66,34 @@
                 }
             }
         },
+        "/packets": {
+            "get": {
+                "tags": [
+                    "Utils"
+                ],
+                "summary": "Game Packets",
+                "description": "Game Packets",
+                "operationId": "getGamePackets",
+                "responses": {
+                    "200": {
+                        "description": "Results limit exceeded",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/sceneries/publics/all": {
             "get": {
                 "tags": [

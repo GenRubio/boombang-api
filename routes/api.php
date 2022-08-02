@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\Auth\AuthController;
+use App\Http\Controllers\Api\v1\Packets\PacketsController;
 use App\Http\Controllers\Api\v1\Sceneries\SceneriesController;
 
 /*
@@ -19,6 +20,8 @@ use App\Http\Controllers\Api\v1\Sceneries\SceneriesController;
 Route::group([
     'prefix' => 'v1',
 ], function () {
+    Route::get('packets', [PacketsController::class, 'get']);
+
     Route::prefix('auth')->group(function () {
         Route::post('register', [AuthController::class, 'register']);
         Route::post('login', [AuthController::class, 'login']);
