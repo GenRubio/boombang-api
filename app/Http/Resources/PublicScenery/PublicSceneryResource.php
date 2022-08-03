@@ -27,6 +27,7 @@ class PublicSceneryResource extends JsonResource
             'price_uppercut' => $this->price_uppercut,
             'price_coconut' => $this->price_coconut,
             'visible' => $this->visible,
+            'bit_map' => $this->scenery->bit_map,
             'indicators' => new SceneryIndicatorsCollection($this->indicators)
         ];
     }
