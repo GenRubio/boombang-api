@@ -6,12 +6,14 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('user') }}'><i class='nav-icon la la-question'></i> Users</a></li>
     </ul>
 </li>
+<li class="nav-title">USUARIOS</li>
 <li class="nav-title">ESCENARIOS</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('scenery') }}'><i class='nav-icon la la-question'></i> Escenarios</a></li>
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class='nav-icon la la-question'></i> Tipos</a>
     <ul class="nav-dropdown-items">
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('public-scenery') }}'><i class='nav-icon la la-question'></i> Publicos</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('private-scenery') }}'><i class='nav-icon la la-question'></i> Privados</a></li>
     </ul>
 </li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('item') }}'><i class='nav-icon la la-question'></i> Items</a></li>
