@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Parametric\ObjectInteraction;
 use App\Models\Parametric\ObjectRarity;
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Parametric\ObjectInteraction;
+use App\Models\Parametric\SceneryObjectType;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use App\Models\Parametric\SceneryObjectPosition;
 
 class GameObject extends Model
 {
@@ -68,6 +70,16 @@ class GameObject extends Model
     public function interaction()
     {
         return $this->belongsTo(ObjectInteraction::class, 'param_object_interaction_id');
+    }
+
+    public function sceneryObjectPositions()
+    {
+        return $this->belongsToMany(SceneryObjectPosition::class, 'game_objects_positions', 'game_object_id', 'param_scenery_object_position_id');
+    }
+
+    public function sceneryObjectTypes()
+    {
+        return $this->belongsToMany(SceneryObjectType::class, 'game_objects_types', 'game_object_id', 'param_scenery_object_type_id');
     }
 
     /*

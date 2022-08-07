@@ -8,6 +8,7 @@ use App\Services\Parametric\ObjectInteractionService;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Http\Controllers\Admin\Traits\GameObjectCrud\GameObjectCrudListOperationTrait;
+use App\Http\Controllers\Admin\Traits\GameObjectCrud\GameObjectCrudExtraFieldsTabTrait;
 use App\Http\Controllers\Admin\Traits\GameObjectCrud\GameObjectCrudInformationFieldsTabTrait;
 
 class GameObjectCrudController extends CrudController
@@ -20,6 +21,7 @@ class GameObjectCrudController extends CrudController
 
     use GameObjectCrudListOperationTrait;
     use GameObjectCrudInformationFieldsTabTrait;
+    use GameObjectCrudExtraFieldsTabTrait;
 
     public function setup()
     {
@@ -34,6 +36,7 @@ class GameObjectCrudController extends CrudController
     {
         CRUD::setValidation(GameObjectRequest::class);
         $this->setInformationFieldsTab();
+        $this->setExtraInformationFieldsTab();
     }
 
     protected function setupUpdateOperation()
