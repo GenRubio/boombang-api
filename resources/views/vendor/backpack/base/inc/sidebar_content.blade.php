@@ -18,6 +18,7 @@
 </li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('item') }}'><i class='nav-icon la la-question'></i> Items</a></li>
 <li class="nav-title">CATALAGO</li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('game-object') }}'><i class='nav-icon la la-question'></i> Objetos</a></li>
 <li class="nav-title">TABLAS PARAMETRICAS</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('parametric-table') }}'><i class='nav-icon la la-question'></i> Tablas</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('parametric-table-value') }}'><i class='nav-icon la la-question'></i> Valores</a></li>

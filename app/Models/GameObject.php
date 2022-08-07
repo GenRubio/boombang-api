@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Item;
-use App\Models\Scenery;
-use App\Models\Parametric\MenuCategory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Parametric\ObjectInteraction;
+use App\Models\Parametric\ObjectRarity;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
 
-class PrivateScenery extends Model
+class GameObject extends Model
 {
     use CrudTrait;
 
@@ -18,19 +17,33 @@ class PrivateScenery extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'private_sceneries';
+    protected $table = 'game_objects';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'scenery_id',
-        'param_menu_category_id',
-        'position_x',
-        'position_y',
-        'max_visitors',
-        'price_uppercut',
-        'price_coconut',
-        'active',
+        'param_object_rarity_id',
+        'param_object_interaction_id',
+        'name',
+        'description',
+        'image',
+        'file_name',
+        'file_path',
+        'colors_hex',
+        'colors_rgb',
+        'size_big',
+        'size_medium',
+        'size_small',
+        'bit_map_size_big',
+        'bit_map_size_medium',
+        'bit_map_size_small',
+        'walk_over_size_big',
+        'walk_over_size_medium',
+        'walk_over_size_small',
+        'undefined_14',
+        'undefined_16',
+        'undefined_17',
+        'active'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -47,19 +60,14 @@ class PrivateScenery extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function scenery()
+    public function rarity()
     {
-        return $this->belongsTo(Scenery::class, 'scenery_id');
+        return $this->belongsTo(ObjectRarity::class, 'param_object_rarity_id');
     }
 
-    public function menuCategory()
+    public function interaction()
     {
-        return $this->belongsTo(MenuCategory::class, 'param_menu_category_id');
-    }
-
-    public function items()
-    {
-        return $this->belongsToMany(Item::class, 'private_scenery_items', 'private_scenery_id', 'item_id');
+        return $this->belongsTo(ObjectInteraction::class, 'param_object_interaction_id');
     }
 
     /*
@@ -72,7 +80,7 @@ class PrivateScenery extends Model
     {
         return $query->where($this->table . '.active', true);
     }
-    
+
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS

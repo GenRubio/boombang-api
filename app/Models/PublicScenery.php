@@ -88,12 +88,12 @@ class PublicScenery extends Model
 
     public function scopeActive($query)
     {
-        return $query->where($this->table . '.active', 1);
+        return $query->where($this->table . '.active', true);
     }
 
     public function scopeVisible($query)
     {
-        return $query->where($this->table . '.visible', 1);
+        return $query->where($this->table . '.visible', true);
     }
 
     /*

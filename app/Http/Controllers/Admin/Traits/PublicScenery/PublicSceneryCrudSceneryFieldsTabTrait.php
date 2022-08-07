@@ -67,6 +67,7 @@ trait PublicSceneryCrudSceneryFieldsTabTrait
             [
                 'name' => 'price_uppercut',
                 'label' => 'Precio uppercut',
+                'suffix' => 'creditos oro',
                 'type' => 'number',
                 'default' => 250,
                 'tab' => 'Escenario'
@@ -74,6 +75,7 @@ trait PublicSceneryCrudSceneryFieldsTabTrait
             [
                 'name' => 'price_coconut',
                 'label' => 'Precio coco',
+                'suffix' => 'creditos oro',
                 'type' => 'number',
                 'default' => 25,
                 'tab' => 'Escenario'

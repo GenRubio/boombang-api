@@ -66,7 +66,7 @@ class Item extends Model
 
     public function scopeActive($query)
     {
-        return $query->where($this->table . '.active', 1);
+        return $query->where($this->table . '.active', true);
     }
 
     public function scopeNotThrowInAllPublicSceneries($query)

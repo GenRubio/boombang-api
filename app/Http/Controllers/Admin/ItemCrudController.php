@@ -132,6 +132,7 @@ class ItemCrudController extends CrudController
             [
                 'name' => 'appearance_time',
                 'label' => 'Tiempo aparicion',
+                'suffix' => 'segundos',
                 'type' => 'number',
                 'default' => 20
             ],
@@ -165,7 +166,6 @@ class ItemCrudController extends CrudController
                 'default' => true,
             ],
         ]);
-
     }
 
     protected function setupUpdateOperation()
