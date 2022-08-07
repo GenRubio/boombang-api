@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Item;
 use App\Models\Scenery;
 use App\Models\Parametric\MenuCategory;
 use Illuminate\Database\Eloquent\Model;
@@ -56,12 +57,22 @@ class PrivateScenery extends Model
         return $this->belongsTo(MenuCategory::class, 'param_menu_category_id');
     }
 
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'private_scenery_items', 'private_scenery_id', 'item_id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
     |--------------------------------------------------------------------------
     */
 
+    public function scopeActive($query)
+    {
+        return $query->where($this->table . '.active', 1);
+    }
+    
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS

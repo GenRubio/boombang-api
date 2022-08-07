@@ -26,7 +26,13 @@ class PrivateSceneryRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'scenery_id' => 'required',
+            'param_menu_category_id' => 'required',
+            'position_x' => 'required',
+            'position_y' => 'required',
+            'max_visitors' => 'required',
+            'price_uppercut' => 'required',
+            'price_coconut' => 'required',
         ];
     }
 

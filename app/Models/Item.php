@@ -74,6 +74,11 @@ class Item extends Model
         return $query->where($this->table . '.throw_in_public_sceneries', false);
     }
 
+    public function scopeNotThrowInAllPrivateSceneries($query)
+    {
+        return $query->where($this->table . '.throw_in_private_sceneries', false);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS
