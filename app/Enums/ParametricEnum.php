@@ -19,7 +19,6 @@ abstract class ParametricEnum
     const PRIVATE_SCENERY_MENU_CATEGORIES = [
         self::MENU_CATEGORIES['ISLAND'],
         self::MENU_CATEGORIES['HOME'],
-        self::MENU_CATEGORIES['MINIGAME'],
     ];
     const PUBLIC_SCENERY_MENU_CATEGORIES = [
         self::MENU_CATEGORIES['AREA'],
