@@ -21,24 +21,21 @@
                 "description": "Login by email, password",
                 "operationId": "authLogin",
                 "requestBody": {
+                    "description": "Pass filters for invoices",
                     "required": true,
                     "content": {
-                        "multipart/form-data": {
+                        "application/json": {
                             "schema": {
                                 "required": [
-                                    "email",
-                                    "password"
+                                    "data"
                                 ],
                                 "properties": {
-                                    "email": {
-                                        "description": "Email",
-                                        "type": "string",
-                                        "format": "email"
-                                    },
-                                    "password": {
-                                        "description": "Password",
-                                        "type": "string",
-                                        "format": "password"
+                                    "data": {
+                                        "type": "object",
+                                        "example": {
+                                            "name": "Admin",
+                                            "password": "admin"
+                                        }
                                     }
                                 },
                                 "type": "object"
@@ -47,15 +44,15 @@
                     }
                 },
                 "responses": {
-                    "422": {
-                        "description": "Wrong credentials response",
+                    "200": {
+                        "description": "Results limit exceeded",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Sorry, wrong email address or password. Please try again"
+                                            "example": "Sorry, wrong username or password. Please try again"
                                         }
                                     },
                                     "type": "object"

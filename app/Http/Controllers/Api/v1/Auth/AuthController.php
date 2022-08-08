@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Api\v1\Auth;
 
+use Exception;
+use App\Utils\ResponseUtil;
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use App\Exceptions\GenericException;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Hash;
@@ -30,20 +33,22 @@ class AuthController extends Controller implements AuthControllerInterface
 
     public function login(Request $request)
     {
-        $loginData = $request->validate([
-            'email' => 'email|required',
-            'password' => 'required',
-        ]);
-
-        if (!auth()->attempt($loginData)) {
-            return response(['message' => 'Invalid credentials']);
+        try {
+            $data = ResponseUtil::getDataValues($request);
+            if (!auth()->attempt([
+                'name' => $data->name,
+                'password' => $data->password
+            ])) {
+                throw new GenericException('Invalid credentials');
+            }
+            return response([
+                'user' => new UserResource(getUser()),
+                'access_token' => getUser()->createToken('authToken')->accessToken
+            ]);
+        } catch (GenericException $e) {
+            return response(['error' => $e->getMessage()]);
+        } catch (Exception $e) {
+            return response(['error' => $e->getMessage()]);
         }
-
-        $accessToken = getUser()->createToken('authToken')->accessToken;
-
-        return response([
-            'user' => new UserResource(getUser()),
-            'access_token' => $accessToken
-        ]);
     }
 }

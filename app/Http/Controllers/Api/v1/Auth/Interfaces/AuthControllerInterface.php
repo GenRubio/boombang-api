@@ -17,29 +17,24 @@ interface AuthControllerInterface
      * tags={"Authentication"},
      * @OA\RequestBody(
      *    required=true,
-     *    @OA\MediaType(mediaType="multipart/form-data",
-     *        @OA\Schema(
-     *           required={"email","password"},
-     *             @OA\Property(
-     *                property="email",
-     *                type="string",
-     *                format="email",
-     *                description="Email"
-     *             ),
-     *             @OA\Property(
-     *                property="password",
-     *                type="string",
-     *                format="password",
-     *                description="Password"
-     *             ),
-     *         )
-     *     )
+     *    description="Pass filters for invoices",
+     *    @OA\JsonContent(
+     *       required={"data"},
+     *       @OA\Property(
+     *           property="data",
+     *           type="object",
+     *           example={
+     *              "name": "Admin",
+     *              "password": "admin"
+     *           }
+     *       ),
+     *    ),
      * ),
      * @OA\Response(
-     *    response=422,
-     *    description="Wrong credentials response",
+     *    response=200,
+     *    description="Results limit exceeded",
      *    @OA\JsonContent(
-     *       @OA\Property(property="message", type="string", example="Sorry, wrong email address or password. Please try again")
+     *       @OA\Property(property="message", type="string", example="Sorry, wrong username or password. Please try again")
      *        )
      *     )
      * )
