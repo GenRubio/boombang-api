@@ -4,7 +4,7 @@ namespace App\Utils;
 
 use Carbon\Carbon;
 
-class ResponseUtil
+class RequestUtil
 {
     public static function getFirstLevelAttribute($requestAll, $key, $array, $date)
     {

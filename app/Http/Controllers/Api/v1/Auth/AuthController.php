@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Auth;
 
 use Exception;
-use App\Utils\ResponseUtil;
+use App\Utils\RequestUtil;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Exceptions\GenericException;
@@ -34,7 +34,7 @@ class AuthController extends Controller implements AuthControllerInterface
     public function login(Request $request)
     {
         try {
-            $data = ResponseUtil::getDataValues($request);
+            $data = RequestUtil::getDataValues($request);
             if (!auth()->attempt([
                 'name' => $data->name,
                 'password' => $data->password
