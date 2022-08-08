@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             ParametricTableValueSeeder::class,
             UsersSeeder::class,
             ScenerieSeeder::class,
-            ItemsSeeder::class
+            ItemsSeeder::class,
+            GameObjectsSeeder::class
         ]);
     }
 }

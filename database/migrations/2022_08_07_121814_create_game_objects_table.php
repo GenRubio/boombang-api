@@ -36,6 +36,7 @@ class CreateGameObjectsTable extends Migration
             $table->string('undefined_14')->default("-1");
             $table->string('undefined_16')->default("1");
             $table->string('undefined_17')->default("1");
+            $table->boolean('show_in_backpack')->default(true);
             $table->boolean('active')->default(true);
             $table->timestamps();
 

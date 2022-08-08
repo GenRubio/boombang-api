@@ -152,6 +152,13 @@ trait GameObjectCrudInformationFieldsTabTrait
                 'tab' => 'Informacion'
             ],
             [
+                'name' => 'show_in_backpack',
+                'type' => 'checkbox',
+                'label' => 'Mostrar en mochila',
+                'default' => true,
+                'tab' => 'Informacion'
+            ],
+            [
                 'name' => 'active',
                 'type' => 'checkbox',
                 'label' => 'Activo',

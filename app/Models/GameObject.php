@@ -45,6 +45,7 @@ class GameObject extends Model
         'undefined_14',
         'undefined_16',
         'undefined_17',
+        'show_in_backpack',
         'active'
     ];
     // protected $hidden = [];
@@ -91,6 +92,11 @@ class GameObject extends Model
     public function scopeActive($query)
     {
         return $query->where($this->table . '.active', true);
+    }
+
+    public function scopeShowInBackpack($query)
+    {
+        return $query->where($this->table . '.show_in_backpack', true);
     }
 
     /*
