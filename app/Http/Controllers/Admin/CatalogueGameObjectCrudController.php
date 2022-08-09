@@ -113,12 +113,14 @@ class CatalogueGameObjectCrudController extends CrudController
             [
                 'name' => 'price_gold',
                 'label' => 'Precio oro',
+                'suffix' => 'creditos oro',
                 'type' => 'number',
                 'default' => 1000
             ],
             [
                 'name' => 'price_silver',
                 'label' => 'Precio plata',
+                'suffix' => 'creditos plata',
                 'type' => 'number',
                 'default' => -1
             ],

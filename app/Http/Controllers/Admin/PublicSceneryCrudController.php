@@ -47,6 +47,7 @@ class PublicSceneryCrudController extends CrudController
     {
         CRUD::setValidation(PublicSceneryRequest::class);
         $this->setSceneryFieldsTab();
+        $this->setItemsFieldsTab();
     }
 
     protected function setupUpdateOperation()

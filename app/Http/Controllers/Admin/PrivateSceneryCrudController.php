@@ -34,6 +34,7 @@ class PrivateSceneryCrudController extends CrudController
     {
         CRUD::setValidation(PrivateSceneryRequest::class);
         $this->setSceneryFieldsTab();
+        $this->setItemsFieldsTab();
     }
 
     protected function setupUpdateOperation()
