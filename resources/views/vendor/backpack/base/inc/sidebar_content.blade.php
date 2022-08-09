@@ -49,4 +49,3 @@
 <li class="nav-title">TABLAS PARAMETRICAS</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('parametric-table') }}'><i class='nav-icon la la-question'></i> Tablas</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('parametric-table-value') }}'><i class='nav-icon la la-question'></i> Valores</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i class="nav-icon la la-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
