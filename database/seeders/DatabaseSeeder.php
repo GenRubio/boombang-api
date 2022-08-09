@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             ScenerieSeeder::class,
             ItemsSeeder::class,
-            GameObjectsSeeder::class
+            GameObjectsSeeder::class,
+            NpcsSeeder::class
         ]);
     }
 }

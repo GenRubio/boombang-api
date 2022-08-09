@@ -17,6 +17,7 @@
     </ul>
 </li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('item') }}'><i class='nav-icon la la-question'></i> Items</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('npc') }}'><i class='nav-icon la la-question'></i> Npc's</a></li>
 <li class="nav-title">CATALAGO</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('catalogue-game-object') }}'><i class='nav-icon la la-question'></i> Catalogo</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('game-object') }}'><i class='nav-icon la la-question'></i> Objetos</a></li>
