@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class NpcsSeeder extends Seeder
+class LanguagesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,14 +17,12 @@ class NpcsSeeder extends Seeder
     {
         $this->now = Carbon::now();
         $data = [
-            [1, 'images/scenery/npcs/ef07dbcdf2d241da0c59c6b1f92ee6d2-image.jpg', 'npc0', NULL, '0', '2022-08-09 05:44:45', '2022-08-09 05:44:45'],
-            [2, 'images/scenery/npcs/6d0ca8394c02c5d243860aebc5d0705c-image.jpg', 'npc1', NULL, '1', '2022-08-09 05:45:24', '2022-08-09 05:45:24'],
-            [3, 'images/scenery/npcs/1d74e78316ea09e33cfe5e4560c372ed-image.jpg', 'npc2', NULL, '2', '2022-08-09 05:46:02', '2022-08-09 05:46:02'],
-            [4, 'images/scenery/npcs/4435fa049380563bcbed78b04ded4a31-image.jpg', 'npc3', NULL, '3', '2022-08-09 05:46:47', '2022-08-09 05:46:47'],
-            [5, 'images/scenery/npcs/90631bced91ff33e57503d878241f794-image.jpg', 'npc4', NULL, '4', '2022-08-09 05:47:28', '2022-08-09 05:47:28'],
+            [1, 'Spanish', 'es', 'español', 1],
+            [2, 'Catalan', 'ca', 'Català', 1],
+            [3, 'English', 'en', 'English', 1]
         ];
         foreach ($data as $insert) {
-            DB::insert('insert into npcs (id, image, file_name, file_path, parameter, created_at, updated_at) values (?,?,?,?,?,?,?)', $insert);
+            DB::insert('insert into languages (id, name, abbr, native, active) values (?,?,?,?,?)', $insert);
         }
     }
 }

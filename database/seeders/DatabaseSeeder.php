@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             ScenerieSeeder::class,
             ItemsSeeder::class,
             GameObjectsSeeder::class,
-            NpcsSeeder::class
+            NpcsSeeder::class,
+            LanguagesSeeder::class
         ]);
     }
 }

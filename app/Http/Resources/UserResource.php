@@ -26,6 +26,7 @@ class UserResource extends JsonResource
             'register_ip' => $this->register_ip,
             'current_ip' => $this->current_ip,
             'last_connection_date' => $this->last_connection_date,
+            'default_locale' => $this->default_locale,
             'data_user' => self::dataUserResource($this->dataUser)
         ];
     }

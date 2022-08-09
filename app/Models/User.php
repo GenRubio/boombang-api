@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'default_locale',
         'security_code',
         'user_age',
         'coins_gold',

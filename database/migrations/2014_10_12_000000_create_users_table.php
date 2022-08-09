@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('default_locale')->default('es');
             $table->string('security_code')->nullable();
             $table->integer('user_age')->nullable();
             $table->integer('coins_gold')->default(0);
