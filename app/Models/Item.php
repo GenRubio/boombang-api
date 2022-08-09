@@ -13,7 +13,7 @@ use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 class Item extends Model
 {
     use CrudTrait;
-    use HasTranslations;
+    //use HasTranslations;
 
     /*
     |--------------------------------------------------------------------------
