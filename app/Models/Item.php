@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\Parametric\ItemCapture;
 use Intervention\Image\Facades\Image;
+use App\Models\Parametric\ItemCapture;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Parametric\ItemAppearance;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class Item extends Model
 {
     use CrudTrait;
+    use HasTranslations;
 
     /*
     |--------------------------------------------------------------------------
@@ -37,6 +39,10 @@ class Item extends Model
     ];
     // protected $hidden = [];
     // protected $dates = [];
+
+    protected $translatable = [
+        'catch_message'
+    ];
 
     /*
     |--------------------------------------------------------------------------
