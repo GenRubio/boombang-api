@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Auth\Interfaces;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\v1\Auth\Requests\AuthController\AuthControllerLoginRequest;
 
 interface AuthControllerInterface
 {
@@ -40,5 +41,5 @@ interface AuthControllerInterface
      * )
      * 
      */
-    public function login(Request $request);
+    public function login(AuthControllerLoginRequest $request);
 }
