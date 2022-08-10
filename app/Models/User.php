@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -61,6 +61,25 @@ class User extends Authenticatable
         return $this->hasOne(DataUser::class, 'user_id', 'id');
     }
 
+    public function friends()
+    {
+        return $this->belongsToMany(User::class, 'user_friends', 'user_id', 'friend_id')
+            ->withPivot(
+                'param_friend_icon_id',
+                'note',
+                'request_accepted',
+            );
+    }
+
+    public function friendsMessages()
+    {
+        return $this->belongsToMany(User::class, 'user_friend_messages', 'user_id', 'friend_id')
+            ->withPivot(
+                'message',
+                'read',
+            );
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -77,6 +96,11 @@ class User extends Authenticatable
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
+
+    public function getNotReadMessagesAttribute()
+    {
+        return $this->friendsMessages->where('read', false);
+    }
 
     /*
     |--------------------------------------------------------------------------
