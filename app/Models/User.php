@@ -6,11 +6,13 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Staudenmeir\LaravelMergedRelations\Eloquent\HasMergedRelationships;
 
 class User extends Authenticatable
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasApiTokens, HasFactory, Notifiable;
+    use HasMergedRelationships;
 
     /**
      * The attributes that are mass assignable.
@@ -50,6 +52,26 @@ class User extends Authenticatable
     |--------------------------------------------------------------------------
     */
 
+    public function pendingFriendsTo()
+    {
+        return $this->friendsTo()->wherePivot('request_accepted', false);
+    }
+
+    public function pendingFriendsFrom()
+    {
+        return $this->friendsFrom()->wherePivot('request_accepted', false);
+    }
+
+    public function acceptedFriendsTo()
+    {
+        return $this->friendsTo()->wherePivot('request_accepted', true);
+    }
+
+    public function acceptedFriendsFrom()
+    {
+        return $this->friendsFrom()->wherePivot('request_accepted', true);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
@@ -61,7 +83,7 @@ class User extends Authenticatable
         return $this->hasOne(DataUser::class, 'user_id', 'id');
     }
 
-    public function friends()
+    public function friendsTo()
     {
         return $this->belongsToMany(User::class, 'user_friends', 'user_id', 'friend_id')
             ->withPivot(
@@ -69,6 +91,21 @@ class User extends Authenticatable
                 'note',
                 'request_accepted',
             );
+    }
+
+    public function friendsFrom()
+    {
+        return $this->belongsToMany(User::class, 'user_friends', 'friend_id', 'user_id')
+            ->withPivot(
+                'param_friend_icon_id',
+                'note',
+                'request_accepted',
+            );
+    }
+
+    public function friends()
+    {
+        return $this->mergedRelationWithModel(User::class, 'friends_view');
     }
 
     public function friendsMessages()

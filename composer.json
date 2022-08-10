@@ -21,7 +21,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "maatwebsite/excel": "^3.1",
-        "spatie/laravel-translatable": "^4.6"
+        "spatie/laravel-translatable": "^4.6",
+        "staudenmeir/laravel-merged-relations": "^1.4"
     },
     "require-dev": {
         "backpack/generators": "^3.1",
