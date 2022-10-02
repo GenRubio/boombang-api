@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\Sceneries\Interfaces;
+namespace App\Http\Controllers\Api\v1\Sceneries\PublicScenery\Interfaces;
 
 use Illuminate\Http\Request;
 
-interface SceneriesControllerInterface
+interface PublicSceneriesControllerInterface
 {
     /**
      * @OA\Get(
-     * path="/sceneries",
-     * summary="Get Esceneries",
-     * description="Get Esceneries",
-     * operationId="getEsceneries",
+     * path="/sceneries/publics",
+     * summary="Get Public Esceneries",
+     * description="Get Public Esceneries",
+     * operationId="getPublicEsceneries",
      * tags={"Sceneries"},
      * @OA\Response(
      *    response=200,

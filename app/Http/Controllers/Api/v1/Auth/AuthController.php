@@ -37,7 +37,6 @@ class AuthController extends Controller implements AuthControllerInterface
     {
         try {
             $data = RequestUtil::getDataValues($request);
-
             if (!auth()->attempt([
                 'name' => $data->name,
                 'password' => $data->password
@@ -48,9 +47,7 @@ class AuthController extends Controller implements AuthControllerInterface
                 'user' => new UserResource(getUser()),
                 'access_token' => getUser()->createToken('authToken')->accessToken
             ]);
-        } catch (GenericException $e) {
-            return response(['error' => $e->getMessage()]);
-        } catch (Exception $e) {
+        } catch (GenericException | Exception $e) {
             return response(['error' => $e->getMessage()]);
         }
     }

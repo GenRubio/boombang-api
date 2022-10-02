@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\Auth\AuthController;
 use App\Http\Controllers\Api\v1\Packets\PacketsController;
 use App\Http\Controllers\Api\v1\Sceneries\SceneriesController;
+use App\Http\Controllers\Api\v1\Sceneries\PublicScenery\PublicSceneriesController;
+use App\Http\Controllers\Api\v1\Sceneries\PrivateScenery\PrivateSceneriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +30,12 @@ Route::group([
     });
 
     Route::prefix('sceneries')->group(function () {
+        Route::get('/', [SceneriesController::class, 'getAll']);
         Route::prefix('publics')->group(function () {
-            Route::get('all', [SceneriesController::class, 'getPublicsAll']);
+            Route::get('/', [PublicSceneriesController::class, 'getAll']);
+        });
+        Route::prefix('privates')->group(function () {
+            Route::get('/', [PrivateSceneriesController::class, 'getAll']);
         });
     });
 });

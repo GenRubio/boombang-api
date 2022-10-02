@@ -91,7 +91,63 @@
                 }
             }
         },
-        "/sceneries/publics/all": {
+        "/sceneries": {
+            "get": {
+                "tags": [
+                    "Sceneries"
+                ],
+                "summary": "Get Esceneries",
+                "description": "Get Esceneries",
+                "operationId": "getEsceneries",
+                "responses": {
+                    "200": {
+                        "description": "Results limit exceeded",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sceneries/privates": {
+            "get": {
+                "tags": [
+                    "Sceneries"
+                ],
+                "summary": "Get Privates Esceneries",
+                "description": "Get Privates Esceneries",
+                "operationId": "getPrivatesEsceneries",
+                "responses": {
+                    "200": {
+                        "description": "Results limit exceeded",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sceneries/publics": {
             "get": {
                 "tags": [
                     "Sceneries"

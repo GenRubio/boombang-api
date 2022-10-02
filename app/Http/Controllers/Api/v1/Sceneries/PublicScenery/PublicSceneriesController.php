@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\Sceneries;
+namespace App\Http\Controllers\Api\v1\Sceneries\PublicScenery;
 
 use Exception;
 use ErrorException;
@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\PublicSceneryService;
 use App\Http\Resources\PublicScenery\PublicSceneryCollection;
-use App\Http\Controllers\Api\v1\Sceneries\Interfaces\SceneriesControllerInterface;
+use App\Http\Controllers\Api\v1\Sceneries\PublicScenery\Interfaces\PublicSceneriesControllerInterface;
 
-class SceneriesController extends Controller implements SceneriesControllerInterface
+class PublicSceneriesController extends Controller implements PublicSceneriesControllerInterface
 {
     public function getAll()
     {
